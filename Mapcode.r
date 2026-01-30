@@ -63,7 +63,7 @@ title <- tags$div(tag.map.title, HTML("CLP Hominin Sites"))
 
 m <- leaflet(data = coords)|> addTiles() |>
 addControl(title, position = "topleft", className = "map-title") |>
-addProviderTiles(providers$Esri.WorldImagery) |>
+addProviderTiles(providers$Esri.WorldPhysical) |>
   addMarkers(~Lng, ~Lat, 
   popup = paste("Site:", coords$Site, "<br>",
 				"Age:", coords$Age),
@@ -72,7 +72,7 @@ addProviderTiles(providers$Esri.WorldImagery) |>
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
 	offset = c(-4, -4),
 	style = list(
-		"color" = "darkgray",
+		"color" = "black",
 		"font-family" = "serif",
 		"font-size" = "16px",
 		"font-weight" = "bold"),
