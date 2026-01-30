@@ -8,10 +8,19 @@ This repository and website serve as a means to share, create, and visualize spa
 
 ## Map of Mid- to Late-Pleistocene hominin sites
 
-```{r}
-#| cache = FALSE
-knitr::read_chunk('Mapcode.r')
+```{r, include = FALSE}
+knitr::opts_chunk$set('Mapcode.r',
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
 
-```{r, Loadmap}
+```{r,echo=FALSE}
+library(leaflet)
+```
+
+```{r, Loaddata}
+```
+
+```{r, Loadtable}
 ```

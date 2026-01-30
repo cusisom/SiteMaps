@@ -4,14 +4,14 @@
 
 ## ---- Loadpackages --------
 
-require(leaflet)
+library(leaflet)
 require(leaflet.providers)
-require(dplyr)
+library(dplyr)
 require(knitr)
 require(gapminder)
 require(htmltools)
 require(magrittr)
-
+require(tidyr)
 ## ---- Loaddata --------
 
 coords <- read.csv(print(
@@ -67,8 +67,8 @@ legend <- "
 </div>"
 
 # Create the map
-m <- leaflet(data = coords) %>% addTiles() %>%
-addProviderTiles(providers$Esri.WorldImagery) %>%
+m <- leaflet(data = coords)|> addTiles() |>
+addProviderTiles(providers$Esri.WorldImagery) |>
   addMarkers(~Lng, ~Lat, 
   popup = paste("Site:", coords$Site, "<br>",
 				"Age:", coords$Age),
