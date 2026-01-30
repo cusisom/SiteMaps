@@ -1,0 +1,19 @@
+# Leaflet Mapping
+
+m <- leaflet() %>%
++     addTiles() %>%
++    addMarkers(lng = 109.92, lat = 34.77, popup = "Dali")
+
+m <- leaflet() %>%
+  setView(lng = 109.92, lat = 34.77, zoom = 5) %>%
+  addProviderTiles(providers$OpenTopoMap) %>%
+  addMarkers(lng = 109.92, lat = 34.77, popup = "Dali")
+  
+  m <- leaflet() %>%
+  addTiles() %>%
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+  addMarkers(
+    lng = c(109.92, 120.26), lat = c(34.77, -8.15),
+    popup = c("Dali", "Liang Bua")
+  )
+htmltools::save_html(m, file = "C:/Users/danny/Documents/git/SiteMaps/leaflet-3.html")
