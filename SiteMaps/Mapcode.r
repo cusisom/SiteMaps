@@ -10,6 +10,7 @@ require(dplyr)
 require(knitr)
 require(gapminder)
 require(htmltools)
+require(magrittr)
 
 ## ---- Loaddata --------
 
