@@ -83,7 +83,7 @@ addProviderTiles(providers$Esri.WorldImagery) |>
 		"font-weight" = "bold"),
   
 				))
-
+m
 
 ## ---- Loadtable --------
 
