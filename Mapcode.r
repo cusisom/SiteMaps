@@ -1,6 +1,6 @@
 # Code for importing tables and maps
 # Will need to load a few packages
-# setwd("C:/Users/danny/Documents/git/SiteMaps/SiteMaps")
+# setwd("C:/Users/danny/Documents/git/SiteMaps")
 
 ## ---- Loadpackages --------
 
@@ -12,67 +12,47 @@ require(gapminder)
 require(htmltools)
 require(magrittr)
 require(tidyr)
+library(leaflegend)
 ## ---- Loaddata --------
+
+# load in the excel spreadsheet for the datatable
 
 coords <- read.csv(print(
 "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"))
 
-my_local_icon_path <- makeIcon(
-  iconUrl = "C:/Users/danny/Documents/git/SiteMaps/simpleicon.png",
-  iconWidth = 15,
-  iconHeight = 15
+# I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
+
+symbols <- makeSymbolsSize(
+  values = 10,
+  shape = 'diamond',
+  color = 'black',
+  fillColor = 'black',
+  opacity = 1,
+  baseSize = 10
 )
+
+tag.map.title <- tags$style(HTML("
+  .leaflet-control.map-title {
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+"))
+title <- tags$div(tag.map.title, HTML("CLP Hominin Sites"))
+
 
 ## ---- Loadmap --------
 
-title <- "
-<style>
-  .custom-title {
-    color: #34495e;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    background-color: rgba(204, 224, 255, 0.9);
-    padding: 12px;
-    border-radius: 8px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-.custom-title:hover {
-    background-color: rgba(204, 224, 255, 0.7);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-</style>
-<h1>
-  Mid- to Late-Pleistocene Hominin Sites
-</h1>"
 
-legend <- "
-<style>
-  .custom-legend {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 300px;
-  }
-  .custom-legend:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: scale(1.05);
-  }
-</style>
-<div>
- <p>
-     <a href='https://cusisom.github.io/Research_Methods/' target='_blank'>Hominin Sites</a> identified on this map are also referenced in current research on Chibanian hominin variation. 
-  </p>
-</div>"
-
-# Create the map
 m <- leaflet(data = coords)|> addTiles() |>
+addControl(title, position = "topleft", className = "map-title") |>
 addProviderTiles(providers$Esri.WorldImagery) |>
   addMarkers(~Lng, ~Lat, 
   popup = paste("Site:", coords$Site, "<br>",
 				"Age:", coords$Age),
-  icon = my_local_icon_path,
+  icon = symbols,
   label = ~Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
 	offset = c(-4, -4),
