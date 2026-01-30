@@ -1,19 +1,19 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "SiteMaps"
+  title: "PaleoAnth SiteMaps"
   navbar:
+    pinned: true
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+        - Splash.qmd
 format:
   html:
-    theme: cosmo
+    theme: Sandstone
     css: styles.css
     toc: true
-
-
-
+    
+    
