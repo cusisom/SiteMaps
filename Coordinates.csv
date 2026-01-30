@@ -1,15 +1,15 @@
-﻿Lng,Lat,Site,Age,Number
-109.9209,34.7738,Dali,267-258 ka,1
-117.5151,31.3255,Chaoxian,N/A,2
-113.6054,24.674,Maba,135-129 ka,3
-122.1308,40.37,Jinniushan,200-260 ka,4
-116.5654,30.0634,Hualongdong,275-331 ka,5
-113.404,34.0408,Xuchang,125-105 ka,6
-102.3417,35.2653,Xiahe ,~160 ka,7
-126.3827,45.4527,Harbin,309-138 ka,8
-113.59,40.06,Xujiayao,220-160 ka,9
-104.084,25.3738,Panxian Dadong,300-190 ka,10
-105.164,20.3722,Ma U'Oi,193-49 ka,11
-103.2432,20.1241,Tam Ngu Hao,164-131 ka,12
-120.2637,-8.15,Liang Bua cave,100-60 ka,13
-121.4925,17.4211,Callao Cave,67-50 ka,14
+﻿Site_Number,Lng,Lat,Site,Age,Period
+1,109.9209,34.7738,Dali,267-258 ka,Chibanian
+2,117.5151,31.3255,Chaoxian,N/A,Unknown
+3,113.6054,24.674,Maba,135-129 ka,Chibanian
+4,122.1308,40.37,Jinniushan,200-260 ka,Chibanian
+5,116.5654,30.0634,Hualongdong,275-331 ka,Chibanian
+6,113.404,34.0408,Xuchang,125-105 ka,Late Pleistocene
+7,102.3417,35.2653,Xiahe ,~160 ka,Chibanian
+8,126.3827,45.4527,Harbin,309-138 ka,Chibanian
+9,113.59,40.06,Xujiayao,220-160 ka,Chibanian
+10,104.084,25.3738,Panxian Dadong,300-190 ka,Chibanian
+11,105.164,20.3722,Ma U'Oi,193-49 ka,Chibanian
+12,103.2432,20.1241,Tam Ngu Hao,164-131 ka,Chibanian
+13,120.2637,-8.15,Liang Bua cave,100-60 ka,Late Pleistocene
+14,121.4925,17.4211,Callao Cave,67-50 ka,Late Pleistocene

@@ -13,15 +13,24 @@ This repository and website serve as a means to share, create, and visualize spa
 knitr::read_chunk('Mapcode.r')
 ```
 
+
 ```{r,echo=FALSE}
 library(leaflet)
+```
+
+```{r,echo=FALSE}
+library(leaflegend)
+```
+
+```{r,echo=FALSE}
+library(htmltools)
 ```
 
 ```{r, Loaddata}
 ```
 
-```{r, Loadtable}
+```{r, Loadmap}
 ```
 
-```{r, Loadmap}
+```{r, Loadtable}
 ```

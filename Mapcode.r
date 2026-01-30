@@ -9,7 +9,7 @@ require(leaflet.providers)
 library(dplyr)
 require(knitr)
 require(gapminder)
-require(htmltools)
+library(htmltools)
 require(magrittr)
 require(tidyr)
 library(leaflegend)
@@ -21,6 +21,21 @@ coords <- read.csv(print(
 "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"))
 
 # I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
+
+
+custom_div <- tags$div(
+  HTML("<h3>Custom Styled Div</h3><p>This is an absolutely positioned HTML element overlaying the map.</p>"),
+  style = "position: absolute; 
+           top: 20px; 
+           right: 20px; 
+           z-index: 1000; /* Ensures the div is above map tiles but below some controls */
+           background-color: rgba(255, 255, 255, 0.8); 
+           padding: 15px; 
+           border-radius: 5px; 
+           width: 200px;
+           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+)
+
 
 symbols <- makeSymbolsSize(
   values = 10,
