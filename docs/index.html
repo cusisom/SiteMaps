@@ -254,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords<span class="sc">$</span>Age),</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Site_Number,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'left'</span>,</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">4</span>),</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
@@ -266,121 +266,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                ))</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-7c619ac5e4d745e3696b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7c619ac5e4d745e3696b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addControl","args":["<div>\n  <style>\n  .leaflet-control.map-title {\n    background: rgba(255,255,255,0.7);\n    padding: 10px;\n    font-size: 20px;\n    font-weight: bold;\n    text-align: center;\n  }\n<\/style>\n  CLP Hominin Sites\n<\/div>","topleft",null,"map-title"]},{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.7738,31.3255,24.674,40.37,30.0634,34.0408,35.2653,45.4527,40.06,25.3738,20.3722,20.1241,-8.15,17.4211],[109.9209,117.5151,113.6054,122.1308,116.5654,113.404,102.3417,126.3827,113.59,104.084,105.164,103.2432,120.2637,121.4925],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Dali <br> Age: 267-258 ka","Site: Chaoxian <br> Age: N/A","Site: Maba <br> Age: 135-129 ka","Site: Jinniushan <br> Age: 200-260 ka","Site: Hualongdong <br> Age: 275-331 ka","Site: Xuchang <br> Age: 125-105 ka","Site: Xiahe  <br> Age: ~160 ka","Site: Harbin <br> Age: 309-138 ka","Site: Xujiayao <br> Age: 220-160 ka","Site: Panxian Dadong <br> Age: 300-190 ka","Site: Ma U'Oi <br> Age: 193-49 ka","Site: Tam Ngu Hao <br> Age: 164-131 ka","Site: Liang Bua cave <br> Age: 100-60 ka","Site: Callao Cave <br> Age: 67-50 ka"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-4,-4],"textsize":"10px","textOnly":true,"style":{"color":"darkgray","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-8.15,45.4527],"lng":[102.3417,126.3827]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-fe95603eed6f261b910f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fe95603eed6f261b910f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addControl","args":["<div>\n  <style>\n  .leaflet-control.map-title {\n    background: rgba(255,255,255,0.7);\n    padding: 10px;\n    font-size: 20px;\n    font-weight: bold;\n    text-align: center;\n  }\n<\/style>\n  CLP Hominin Sites\n<\/div>","topleft",null,"map-title"]},{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.7738,31.3255,24.674,40.37,30.0634,34.0408,35.2653,45.4527,40.06,25.3738,20.3722,20.1241,-8.15,17.4211],[109.9209,117.5151,113.6054,122.1308,116.5654,113.404,102.3417,126.3827,113.59,104.084,105.164,103.2432,120.2637,121.4925],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Dali <br> Age: 267-258 ka","Site: Chaoxian <br> Age: N/A","Site: Maba <br> Age: 135-129 ka","Site: Jinniushan <br> Age: 200-260 ka","Site: Hualongdong <br> Age: 275-331 ka","Site: Xuchang <br> Age: 125-105 ka","Site: Xiahe  <br> Age: ~160 ka","Site: Harbin <br> Age: 309-138 ka","Site: Xujiayao <br> Age: 220-160 ka","Site: Panxian Dadong <br> Age: 300-190 ka","Site: Ma U'Oi <br> Age: 193-49 ka","Site: Tam Ngu Hao <br> Age: 164-131 ka","Site: Liang Bua cave <br> Age: 100-60 ka","Site: Callao Cave <br> Age: 67-50 ka"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-4,-4],"textsize":"10px","textOnly":true,"style":{"color":"darkgray","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-8.15,45.4527],"lng":[102.3417,126.3827]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: right;">Site_Number</th>
 <th style="text-align: right;">Lng</th>
 <th style="text-align: right;">Lat</th>
 <th style="text-align: left;">Site</th>
 <th style="text-align: left;">Age</th>
-<th style="text-align: right;">Number</th>
+<th style="text-align: left;">Period</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">109.9209</td>
 <td style="text-align: right;">34.7738</td>
 <td style="text-align: left;">Dali</td>
 <td style="text-align: left;">267-258 ka</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">117.5151</td>
 <td style="text-align: right;">31.3255</td>
 <td style="text-align: left;">Chaoxian</td>
 <td style="text-align: left;">N/A</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: left;">Unknown</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">113.6054</td>
 <td style="text-align: right;">24.6740</td>
 <td style="text-align: left;">Maba</td>
 <td style="text-align: left;">135-129 ka</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">122.1308</td>
 <td style="text-align: right;">40.3700</td>
 <td style="text-align: left;">Jinniushan</td>
 <td style="text-align: left;">200-260 ka</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">116.5654</td>
 <td style="text-align: right;">30.0634</td>
 <td style="text-align: left;">Hualongdong</td>
 <td style="text-align: left;">275-331 ka</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">113.4040</td>
 <td style="text-align: right;">34.0408</td>
 <td style="text-align: left;">Xuchang</td>
 <td style="text-align: left;">125-105 ka</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: left;">Late Pleistocene</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">102.3417</td>
 <td style="text-align: right;">35.2653</td>
 <td style="text-align: left;">Xiahe</td>
 <td style="text-align: left;">~160 ka</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">126.3827</td>
 <td style="text-align: right;">45.4527</td>
 <td style="text-align: left;">Harbin</td>
 <td style="text-align: left;">309-138 ka</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">113.5900</td>
 <td style="text-align: right;">40.0600</td>
 <td style="text-align: left;">Xujiayao</td>
 <td style="text-align: left;">220-160 ka</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">104.0840</td>
 <td style="text-align: right;">25.3738</td>
 <td style="text-align: left;">Panxian Dadong</td>
 <td style="text-align: left;">300-190 ka</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">105.1640</td>
 <td style="text-align: right;">20.3722</td>
 <td style="text-align: left;">Ma U’Oi</td>
 <td style="text-align: left;">193-49 ka</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">12</td>
 <td style="text-align: right;">103.2432</td>
 <td style="text-align: right;">20.1241</td>
 <td style="text-align: left;">Tam Ngu Hao</td>
 <td style="text-align: left;">164-131 ka</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: left;">Chibanian</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">13</td>
 <td style="text-align: right;">120.2637</td>
 <td style="text-align: right;">-8.1500</td>
 <td style="text-align: left;">Liang Bua cave</td>
 <td style="text-align: left;">100-60 ka</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: left;">Late Pleistocene</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">14</td>
 <td style="text-align: right;">121.4925</td>
 <td style="text-align: right;">17.4211</td>
 <td style="text-align: left;">Callao Cave</td>
 <td style="text-align: left;">67-50 ka</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: left;">Late Pleistocene</td>
 </tr>
 </tbody>
 </table>

@@ -68,7 +68,7 @@ addProviderTiles(providers$Esri.WorldImagery) |>
   popup = paste("Site:", coords$Site, "<br>",
 				"Age:", coords$Age),
   icon = symbols,
-  label = ~Number,
+  label = ~Site_Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
 	offset = c(-4, -4),
 	style = list(
@@ -82,6 +82,6 @@ m
 
 ## ---- Loadtable --------
 
-knitr::kable(coords)
+knitr::kable(coords, align = "c")
 
 
