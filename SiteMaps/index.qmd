@@ -7,3 +7,11 @@ title: "PaleoAnth SiteMaps"
 This repository and website serve as a means to share, create, and visualize spatiotemporal information related to hominin sites in the middle and late Pleistocene. The information below includes both an interactive map and a dynamic table. Tables and maps are able to be exported into a word processor for manuscript development. 
 
 ## Map of Mid- to Late-Pleistocene hominin sites
+
+```{r}
+#| cache = FALSE
+knitr::read_chunk('Mapcode.r')
+```
+
+```{r, Loadmap}
+```

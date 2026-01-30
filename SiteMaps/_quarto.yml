@@ -9,7 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-        - Splash.qmd
+        
 format:
   html:
     theme: Sandstone
