@@ -26,6 +26,8 @@ library(leaflegend)
 library(htmltools)
 ```
 
+I need to set some parameters for how I want the map to be designed. The primary tools used are found in the `leaflets` package and associated additions (`leaflet.providers` and `leaflegend`). We need to allow tags to be used from the htmltools package for altering icon dynamics. This is done also for developing the map title and legend (if desired). For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
+
 ```{r, Loaddata}
 ```
 

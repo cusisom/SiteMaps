@@ -85,3 +85,24 @@ m
 knitr::kable(coords, align = "c")
 
 
+coords1 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/EPleis.csv"))
+
+knitr::kable(coords1, align = "c")
+
+d <- leaflet(data = coords1)|> addTiles() |>
+addControl(title, position = "topleft", className = "map-title") |>
+addProviderTiles(providers$Esri.WorldPhysical) |>
+  addMarkers(~Long, ~Lat, 
+  popup = paste("Site:", coords1$Site, "<br>",
+				"Age:", coords1$Proposed.Absolute.Age),
+  icon = symbols,
+  labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
+	offset = c(-4, -4),
+	style = list(
+		"color" = "black",
+		"font-family" = "serif",
+		"font-size" = "16px",
+		"font-weight" = "bold"),
+  
+				))
+d
