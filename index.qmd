@@ -4,9 +4,11 @@ title: "PaleoAnth SiteMaps"
 
 ## About
 
-This repository and website serve as a means to share, create, and visualize spatiotemporal information related to hominin sites in the middle and late Pleistocene. The information below includes both an interactive map and a dynamic table. Tables and maps are able to be exported into a word processor for manuscript development. 
+This repository and website serve as a means to share, create, and visualize spatiotemporal information related to hominin sites throughout the Pleistocene. The information below includes both an interactive map and a dynamic table. Tables and maps are able to be exported into a word processor for manuscript development. 
 
-## Map of Mid- to Late-Pleistocene hominin sites
+## Map building
+
+I'm using a couple of packages to bring these maps to life. These laregly include `leaflet` (along with its add-ons) and the `htmltools` package. These operations have specfic parameters to be established which are detailed below. 
 
 ```{r}
 #| cache = FALSE
@@ -26,13 +28,31 @@ library(leaflegend)
 library(htmltools)
 ```
 
-I need to set some parameters for how I want the map to be designed. The primary tools used are found in the `leaflets` package and associated additions (`leaflet.providers` and `leaflegend`). We need to allow tags to be used from the htmltools package for altering icon dynamics. This is done also for developing the map title and legend (if desired). For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
-
 ```{r, Loaddata}
 ```
+## Chibanian and Late Pleistocene
+
+The data presented in this map and table was taken from my earlier work on the topic. I used this material mostly to figure out the map building process. The table I included (which the map is drawn from) is intentionally simplistic. If we are using this page for sharing/visualizing information, we can keep all tables used for this pretty simple. See below, however, for how a more comprehensive table would appear. 
 
 ```{r, Loadmap}
 ```
 
 ```{r, Loadtable}
+```
+
+## Early Pleistocene Map
+
+The data for this map and table were taken from the google doc shared with the group. I additionally added the Lat/Long, Number, and Ref. columns for ease of translation. 
+
+```{r, Loaddata2}
+```
+
+```{r, Loadmap2}
+```
+
+## Early Pleistocene Sites
+
+This is a more comprehensive table than I originally built. As long as all of the information is in an Excel file (.csv), I can include or omit information with ease. 
+
+```{r, Loadtable2}
 ```

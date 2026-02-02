@@ -166,7 +166,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
-  <li><a href="#map-of-mid--to-late-pleistocene-hominin-sites" id="toc-map-of-mid--to-late-pleistocene-hominin-sites" class="nav-link" data-scroll-target="#map-of-mid--to-late-pleistocene-hominin-sites">Map of Mid- to Late-Pleistocene hominin sites</a></li>
+  <li><a href="#map-building" id="toc-map-building" class="nav-link" data-scroll-target="#map-building">Map building</a></li>
+  <li><a href="#chibanian-and-late-pleistocene" id="toc-chibanian-and-late-pleistocene" class="nav-link" data-scroll-target="#chibanian-and-late-pleistocene">Chibanian and Late Pleistocene</a></li>
+  <li><a href="#early-pleistocene-map" id="toc-early-pleistocene-map" class="nav-link" data-scroll-target="#early-pleistocene-map">Early Pleistocene Map</a></li>
+  <li><a href="#early-pleistocene-sites" id="toc-early-pleistocene-sites" class="nav-link" data-scroll-target="#early-pleistocene-sites">Early Pleistocene Sites</a></li>
   </ul>
 </nav>
     </div>
@@ -194,14 +197,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
-<p>This repository and website serve as a means to share, create, and visualize spatiotemporal information related to hominin sites in the middle and late Pleistocene. The information below includes both an interactive map and a dynamic table. Tables and maps are able to be exported into a word processor for manuscript development.</p>
+<p>This repository and website serve as a means to share, create, and visualize spatiotemporal information related to hominin sites throughout the Pleistocene. The information below includes both an interactive map and a dynamic table. Tables and maps are able to be exported into a word processor for manuscript development.</p>
 </section>
-<section id="map-of-mid--to-late-pleistocene-hominin-sites" class="level2">
-<h2 class="anchored" data-anchor-id="map-of-mid--to-late-pleistocene-hominin-sites">Map of Mid- to Late-Pleistocene hominin sites</h2>
+<section id="map-building" class="level2">
+<h2 class="anchored" data-anchor-id="map-building">Map building</h2>
+<p>I’m using a couple of packages to bring these maps to life. These laregly include <code>leaflet</code> (along with its add-ons) and the <code>htmltools</code> package. These operations have specfic parameters to be established which are detailed below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">read_chunk</span>(<span class="st">'Mapcode.r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>I need to set some parameters for how I want the map to be designed. The primary tools used are found in the <code>leaflets</code> package and associated additions (<code>leaflet.providers</code> and <code>leaflegend</code>). We need to allow tags to be used from the htmltools package for altering icon dynamics. This is done also for developing the map title and legend (if desired). For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the excel spreadsheet for the datatable</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,6 +250,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>))</span>
 <span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(tag.map.title, <span class="fu">HTML</span>(<span class="st">"CLP Hominin Sites"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="chibanian-and-late-pleistocene" class="level2">
+<h2 class="anchored" data-anchor-id="chibanian-and-late-pleistocene">Chibanian and Late Pleistocene</h2>
+<p>The data presented in this map and table was taken from my earlier work on the topic. I used this material mostly to figure out the map building process. The table I included (which the map is drawn from) is intentionally simplistic. If we are using this page for sharing/visualizing information, we can keep all tables used for this pretty simple. See below, however, for how a more comprehensive table would appear.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords)<span class="sc">|&gt;</span> <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addControl</span>(title, <span class="at">position =</span> <span class="st">"topleft"</span>, <span class="at">className =</span> <span class="st">"map-title"</span>) <span class="sc">|&gt;</span></span>
@@ -267,8 +274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                ))</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-da937b6a9ccd727c1b4c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-da937b6a9ccd727c1b4c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addControl","args":["<div>\n  <style>\n  .leaflet-control.map-title {\n    background: rgba(255,255,255,0.7);\n    padding: 10px;\n    font-size: 20px;\n    font-weight: bold;\n    text-align: center;\n  }\n<\/style>\n  CLP Hominin Sites\n<\/div>","topleft",null,"map-title"]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.7738,31.3255,24.674,40.37,30.0634,34.0408,35.2653,45.4527,40.06,25.3738,20.3722,20.1241,-8.15,17.4211],[109.9209,117.5151,113.6054,122.1308,116.5654,113.404,102.3417,126.3827,113.59,104.084,105.164,103.2432,120.2637,121.4925],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Dali <br> Age: 267-258 ka","Site: Chaoxian <br> Age: N/A","Site: Maba <br> Age: 135-129 ka","Site: Jinniushan <br> Age: 200-260 ka","Site: Hualongdong <br> Age: 275-331 ka","Site: Xuchang <br> Age: 125-105 ka","Site: Xiahe  <br> Age: 160 ka","Site: Harbin <br> Age: 309-138 ka","Site: Xujiayao <br> Age: 220-160 ka","Site: Panxian Dadong <br> Age: 300-190 ka","Site: Ma U'Oi <br> Age: 193-49 ka","Site: Tam Ngu Hao <br> Age: 164-131 ka","Site: Liang Bua cave <br> Age: 100-60 ka","Site: Callao Cave <br> Age: 67-50 ka"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-4,-4],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-8.15,45.4527],"lng":[102.3417,126.3827]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-f7199d734565753dc716" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f7199d734565753dc716">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addControl","args":["<div>\n  <style>\n  .leaflet-control.map-title {\n    background: rgba(255,255,255,0.7);\n    padding: 10px;\n    font-size: 20px;\n    font-weight: bold;\n    text-align: center;\n  }\n<\/style>\n  CLP Hominin Sites\n<\/div>","topleft",null,"map-title"]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.7738,31.3255,24.674,40.37,30.0634,34.0408,35.2653,45.4527,40.06,25.3738,20.3722,20.1241,-8.15,17.4211],[109.9209,117.5151,113.6054,122.1308,116.5654,113.404,102.3417,126.3827,113.59,104.084,105.164,103.2432,120.2637,121.4925],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Dali <br> Age: 267-258 ka","Site: Chaoxian <br> Age: N/A","Site: Maba <br> Age: 135-129 ka","Site: Jinniushan <br> Age: 200-260 ka","Site: Hualongdong <br> Age: 275-331 ka","Site: Xuchang <br> Age: 125-105 ka","Site: Xiahe  <br> Age: 160 ka","Site: Harbin <br> Age: 309-138 ka","Site: Xujiayao <br> Age: 220-160 ka","Site: Panxian Dadong <br> Age: 300-190 ka","Site: Ma U'Oi <br> Age: 193-49 ka","Site: Tam Ngu Hao <br> Age: 164-131 ka","Site: Liang Bua cave <br> Age: 100-60 ka","Site: Callao Cave <br> Age: 67-50 ka"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-4,-4],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-8.15,45.4527],"lng":[102.3417,126.3827]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -405,6 +412,198 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: center;">Callao Cave</td>
 <td style="text-align: center;">67-50 ka</td>
 <td style="text-align: center;">Late Pleistocene</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="early-pleistocene-map" class="level2">
+<h2 class="anchored" data-anchor-id="early-pleistocene-map">Early Pleistocene Map</h2>
+<p>The data for this map and table were taken from the google doc shared with the group. I additionally added the Lat/Long, Number, and Ref. columns for ease of translation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>coords1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/EPleis.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/EPleis.csv"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords1)<span class="sc">|&gt;</span> <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>Esri.WorldPhysical) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>Long, <span class="sc">~</span>Lat, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords1<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords1<span class="sc">$</span>Proposed.Absolute.Age),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'left'</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-size"</span> <span class="ot">=</span> <span class="st">"16px"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                ))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-ff0fe75dbeab7160581e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ff0fe75dbeab7160581e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.693,34.1307,30.51468,31.538,25.403954,32.50239,23.34891,34.11015,30.39149],[110.27,109.2908,109.39558,118.577,101.544242,110.35733,107.0013,109.29237,110.04291],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Xihoudu <br> Age: ~2.43 Ma","Site: Shangchen <br> Age: ~2.12-1.26 Ma","Site: Longgupo <br> Age: 2.2-1.4 Ma","Site: Renzidong <br> Age: 2.14-2.15 Ma","Site: Yuanmou <br> Age: ~1.78-1.59 Ma","Site: Yunxian <br> Age: ~1.75-0.6 Ma","Site: Mohui cave <br> Age: 1.69-1.29 Ma","Site: Lantain/Gongwangling <br> Age: ~1.63 Ma","Site: Jianshi/\nLonggudong <br> Age: 1.51-1.04 Ma"],null,null,null,["1","2","3","4","5","6","7","8","9"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-2,-2],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[23.34891,34.693],"lng":[101.544242,118.577]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="early-pleistocene-sites" class="level2">
+<h2 class="anchored" data-anchor-id="early-pleistocene-sites">Early Pleistocene Sites</h2>
+<p>This is a more comprehensive table than I originally built. As long as all of the information is in an Excel file (.csv), I can include or omit information with ease.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords1, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 48%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Number</th>
+<th style="text-align: center;">Site</th>
+<th style="text-align: center;">Proposed.Absolute.Age</th>
+<th style="text-align: center;">Dating.Method</th>
+<th style="text-align: center;">Paleontology</th>
+<th style="text-align: center;">Archaeology</th>
+<th style="text-align: center;">Hominin.Fossils</th>
+<th style="text-align: center;">Lat</th>
+<th style="text-align: center;">Long</th>
+<th style="text-align: center;">Ref.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Xihoudu</td>
+<td style="text-align: center;">~2.43 Ma</td>
+<td style="text-align: center;">Isochron 26AL/10Be</td>
+<td style="text-align: center;"><em>Stegodon sp., Equus sanmeniensis, Hipparion sinense, Coelodonta antiquitatis shansius, Elaphurus chinnaniensis, Axis shansius</em></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">None reported</td>
+<td style="text-align: center;">34.69300</td>
+<td style="text-align: center;">110.2700</td>
+<td style="text-align: center;">1,2,3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Shangchen</td>
+<td style="text-align: center;">~2.12-1.26 Ma</td>
+<td style="text-align: center;">Magnetostratigraphy</td>
+<td style="text-align: center;">A cervid, a bovid, a suid</td>
+<td style="text-align: center;">88 flakes, 20 unmodified stones</td>
+<td style="text-align: center;">None reported</td>
+<td style="text-align: center;">34.13070</td>
+<td style="text-align: center;">109.2908</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Longgupo</td>
+<td style="text-align: center;">2.2-1.4 Ma</td>
+<td style="text-align: center;">Paleomagnetic</td>
+<td style="text-align: center;"><em>Sinomastodon, Nestoritherium, Equus yunnanensis, Ailuropoda microta, Mimomys peii</em></td>
+<td style="text-align: center;">1000+ stone artifacts</td>
+<td style="text-align: center;">1 fragmental mandible, 1 incisor (controversial, probably belong to ape)</td>
+<td style="text-align: center;">30.51468</td>
+<td style="text-align: center;">109.3956</td>
+<td style="text-align: center;">5,6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Renzidong</td>
+<td style="text-align: center;">2.14-2.15 Ma</td>
+<td style="text-align: center;">Biostratigraphy Paleomagnetic</td>
+<td style="text-align: center;"><em>Ailuropoda microta, Homotherium crenatidens, Ursus cf.&nbsp;microdontus, Sinomastodon intermedius, Equus sanmeniensis, Tapirus sanyuanensis, Rhinoceros sinensis, Sus peii, Cervavitus Ultimus, Cervus unicolor</em></td>
+<td style="text-align: center;">59 stone artifacts (cores, flakes, scrapers), 10+ bone artifacts (?</td>
+<td style="text-align: center;">None reported</td>
+<td style="text-align: center;">31.53800</td>
+<td style="text-align: center;">118.5770</td>
+<td style="text-align: center;">7,8,9,10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Yuanmou</td>
+<td style="text-align: center;">~1.78-1.59 Ma</td>
+<td style="text-align: center;">Isochron 26AL/10Be, Paleomagnetic</td>
+<td style="text-align: center;"><em>Equus yunnanensis, Canis yuanmoensis, Hyaena licenti, Axis shansius, Axis cf.&nbsp;rugosus, Rusa stehlimi, Vulpes cf.&nbsp;chikushanensis, Viverricula malaccensis fossils, Rhinoceros sinensis, Ochotonoides complicidens</em></td>
+<td style="text-align: center;">30 stone artifacts, 2 potential bone tools</td>
+<td style="text-align: center;">2 incisors, 1 tibia (<em>H. erectus</em>)</td>
+<td style="text-align: center;">25.40395</td>
+<td style="text-align: center;">101.5442</td>
+<td style="text-align: center;">11,12,13</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Yunxian</td>
+<td style="text-align: center;">~1.75-0.6 Ma</td>
+<td style="text-align: center;">Isochron 26AL/10Be, Magnetostratigraphy, lithnostratigraphy, ESR/U-series</td>
+<td style="text-align: center;"><em>Rhinopithecus lantianensis, Felis peii, Cuon javanicus, Hyena licenti, Ailuropoda melanoleuca wulingshanensis, Stegodon orientalis, Equus sanmeniensis, Sus lyddekeri</em></td>
+<td style="text-align: center;">207 stone artifacts</td>
+<td style="text-align: center;">3 crania</td>
+<td style="text-align: center;">32.50239</td>
+<td style="text-align: center;">110.3573</td>
+<td style="text-align: center;">14,15,16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Mohui cave</td>
+<td style="text-align: center;">1.69-1.29 Ma</td>
+<td style="text-align: center;">ESR/U-series</td>
+<td style="text-align: center;"><em>Gigantopithecus blacki, Macaca sp., Leopoldamys sp., Niviventer sp., Hapalomys sp., Typhlomys sp., Hystrix subcristata, Hystrix magna, Cuon (Cyon) sp., Nestoritherium sp., Ailuropoda microta, Ursus thibetanus, Mustelidae, Felis teilhardi, Stegodon sp., Sus xiaozhu, Sus peii, Cervidae, and Bovidae</em></td>
+<td style="text-align: center;">8 stone artifacts</td>
+<td style="text-align: center;">1 tooth</td>
+<td style="text-align: center;">23.34891</td>
+<td style="text-align: center;">107.0013</td>
+<td style="text-align: center;">17,18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Lantain/Gongwangling</td>
+<td style="text-align: center;">~1.63 Ma</td>
+<td style="text-align: center;">Magnetostratigraphy, cosmogenic</td>
+<td style="text-align: center;"><em>Rhinopithecus lantianensis, Megantereon lantianensis, Ailuropoda melanoleuca fovealis, Stegodon orientalis, Equus sanmeniensis, Tapirus sinensis, Dicerorhinus lantianensis, Magaloceros konwanlinensis</em></td>
+<td style="text-align: center;">20 stone artifacts including cores, flakes, and scrapers</td>
+<td style="text-align: center;">1 H. erectus skull, 1 molar</td>
+<td style="text-align: center;">34.11015</td>
+<td style="text-align: center;">109.2924</td>
+<td style="text-align: center;">14,19,20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Jianshi/</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Longgudong</td>
+<td style="text-align: center;">1.51-1.04 Ma</td>
+<td style="text-align: center;">ESR/U-series</td>
+<td style="text-align: center;"><em>Ailuropoda cf.&nbsp;melanoleuca fovealis, Hyaena licenti, Equus yunnanensis, Tapirus sinensis</em></td>
+<td style="text-align: center;">Some stone artifacts (whether they were related to hominins or Gigantopithecus is uncertain)</td>
+<td style="text-align: center;">3 teeth from excavation, 1 tooth collected</td>
+<td style="text-align: center;">30.39149</td>
+<td style="text-align: center;">110.0429</td>
+<td style="text-align: center;">14,21</td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
