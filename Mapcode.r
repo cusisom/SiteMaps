@@ -80,7 +80,11 @@ addProviderTiles(providers$Esri.WorldPhysical) |>
 				))
 m
 
+htmltools::save_html(m, file = "C:/Users/danny/Documents/git/SiteMaps/paleomapex.html")
+
 ## ---- Loadtable --------
+
+colnames(coords) <- c("Site Number", "Longitude", "Latitude", "Site Name", "Age" "Period")
 
 knitr::kable(coords, align = "c")
 
@@ -109,6 +113,10 @@ addProviderTiles(providers$Esri.WorldPhysical) |>
 				))
 d
 
+htmltools::save_html(d, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap2.html")
+
 ## ---- Loadtable2 --------
+
+colnames(coords1) <- c("Number", "Site Name", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Latitude", "Longitude", "Ref#")
 
 knitr::kable(coords1, align = "c")
