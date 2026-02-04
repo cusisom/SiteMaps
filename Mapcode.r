@@ -13,12 +13,17 @@ library(htmltools)
 require(magrittr)
 require(tidyr)
 library(leaflegend)
+require(skimr)
+require(knitr)
+
 ## ---- Loaddata --------
 
 # load in the excel spreadsheet for the datatable
 
 coords <- read.csv(print(
 "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"))
+
+colnames(coords) <- c("Site Number", "Longitude", "Latitude", "Site Name", "Age" "Period")
 
 # I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
 
@@ -84,7 +89,6 @@ htmltools::save_html(m, file = "C:/Users/danny/Documents/git/SiteMaps/paleomapex
 
 ## ---- Loadtable --------
 
-colnames(coords) <- c("Site Number", "Longitude", "Latitude", "Site Name", "Age" "Period")
 
 knitr::kable(coords, align = "c")
 
