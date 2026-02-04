@@ -23,7 +23,7 @@ require(knitr)
 coords <- read.csv(print(
 "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"))
 
-colnames(coords) <- c("Site Number", "Lng", "Lat", "Site Name", "Age", "Period")
+colnames(coords) <- c("Site_Number", "Lng", "Lat", "Site Name", "Age", "Period")
 
 # I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
 
@@ -124,3 +124,35 @@ htmltools::save_html(d, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap2.
 colnames(coords1) <- c("Number", "Site", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
 
 knitr::kable(coords1, align = "c")
+
+## ---- Loaddata3 --------
+
+coords3 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"))
+
+## ---- Loadmap3 --------
+
+f <- leaflet(data = coords3)|> addTiles() |>
+addProviderTiles(providers$Esri.WorldPhysical) |>
+  addMarkers(~Lng, ~Lat, 
+  popup = paste("Site:", coords1$Site, "<br>",
+				"Age:", coords1$Proposed.Absolute.Age),
+  icon = symbols,
+  label = ~Number,
+  labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
+	offset = c(-2, -2),
+	style = list(
+		"color" = "black",
+		"font-family" = "serif",
+		"font-size" = "16px",
+		"font-weight" = "bold"),
+  
+				))
+f
+
+htmltools::save_html(f, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap3.html")
+
+## ---- Loadtable3 --------
+
+colnames(coords3) <- c("Number", "Site", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
+
+knitr::kable(coords3, align = "c")

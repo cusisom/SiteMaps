@@ -1,0 +1,37 @@
+---
+title: "Map Building"
+---
+
+## About
+
+
+
+```{r}
+#| cache = FALSE
+knitr::read_chunk('Mapcode.r')
+```
+
+
+```{r,echo=FALSE}
+library(leaflet)
+```
+
+```{r,echo=FALSE}
+library(leaflegend)
+```
+
+```{r,echo=FALSE}
+library(htmltools)
+```
+
+```{r, Loaddata}
+```
+
+```{r, Loaddata3}
+```
+
+```{r, Loadmap3}
+```
+
+```{r, Loadtable3}
+```
