@@ -1,5 +1,5 @@
 ---
-title: "Map Building"
+title: "Calabrian: Western Eurasia (WEA)"
 ---
 
 ## About

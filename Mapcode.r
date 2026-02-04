@@ -134,8 +134,8 @@ coords3 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.cs
 f <- leaflet(data = coords3)|> addTiles() |>
 addProviderTiles(providers$Esri.WorldPhysical) |>
   addMarkers(~Lng, ~Lat, 
-  popup = paste("Site:", coords1$Site, "<br>",
-				"Age:", coords1$Proposed.Absolute.Age),
+  popup = paste("Site:", coords3$Site, "<br>",
+				"Age:", coords3$Proposed.Absolute.Age),
   icon = symbols,
   label = ~Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'left',
