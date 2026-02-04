@@ -23,7 +23,7 @@ require(knitr)
 coords <- read.csv(print(
 "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"))
 
-colnames(coords) <- c("Site Number", "Longitude", "Latitude", "Site Name", "Age" "Period")
+colnames(coords) <- c("Site Number", "Lng", "Lat", "Site Name", "Age", "Period")
 
 # I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/
 
@@ -121,6 +121,6 @@ htmltools::save_html(d, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap2.
 
 ## ---- Loadtable2 --------
 
-colnames(coords1) <- c("Number", "Site Name", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Latitude", "Longitude", "Ref#")
+colnames(coords1) <- c("Number", "Site", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
 
 knitr::kable(coords1, align = "c")
