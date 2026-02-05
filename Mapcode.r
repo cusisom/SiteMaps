@@ -16,6 +16,7 @@ library(leaflegend)
 require(skimr)
 require(knitr)
 require(RefManageR)
+require(devtools)
 
 ## ---- Loaddata --------
 
@@ -186,4 +187,18 @@ knitr::kable(coords3, align = "c")
 
 bib <- ReadBib("C:/Users/danny/Documents/git/SiteMaps/references.bib", check = FALSE)
 
-bib
+# 1. Create a working copy
+bib_clean <- bib
+
+# 2. Clear the specific fields that trigger "Visited" and online links
+bib_clean$urldate <- NULL
+bib_clean$doi <- NULL
+bib_clean$url <- NULL
+
+# 3. Print the cleaned bibliography
+print(bib_clean, .opts = list(
+  style = "markdown", 
+  bib.style = "authoryear", 
+  first.inits = TRUE, 
+  dashed = FALSE
+))

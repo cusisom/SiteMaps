@@ -12,6 +12,9 @@ bibliography: references.bib
 knitr::read_chunk('Mapcode.r')
 ```
 
+```{r, Loadpackages, message = FALSE, warning = FALSE}
+```
+
 
 ```{r,echo=FALSE}
 library(leaflet)
@@ -25,7 +28,7 @@ library(leaflegend)
 library(htmltools)
 ```
 
-```{r, Loaddata3}
+```{r, Loaddata3, message = FALSE, warning = FALSE}
 ```
 
 ```{r, Loadmap3}
