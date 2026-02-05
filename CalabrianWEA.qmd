@@ -24,9 +24,6 @@ library(leaflegend)
 library(htmltools)
 ```
 
-```{r, Loaddata}
-```
-
 ```{r, Loaddata3}
 ```
 

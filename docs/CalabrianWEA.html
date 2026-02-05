@@ -201,86 +201,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">read_chunk</span>(<span class="st">'Mapcode.r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the excel spreadsheet for the datatable</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">"C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/Coordinates.csv"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Site_Number"</span>, <span class="st">"Lng"</span>, <span class="st">"Lat"</span>, <span class="st">"Site Name"</span>, <span class="st">"Age"</span>, <span class="st">"Period"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># I need to set some parameters for how I want the map to be designed. This first parameter is for the icons used. For more details visit https://roh.engineering/posts/2021/05/map-symbols-and-size-legends-for-leaflet/</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>custom_div <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">HTML</span>(<span class="st">"&lt;h3&gt;Custom Styled Div&lt;/h3&gt;&lt;p&gt;This is an absolutely positioned HTML element overlaying the map.&lt;/p&gt;"</span>),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">"position: absolute; </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">           top: 20px; </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">           right: 20px; </span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">           z-index: 1000; /* Ensures the div is above map tiles but below some controls */</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">           background-color: rgba(255, 255, 255, 0.8); </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">           padding: 15px; </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">           border-radius: 5px; </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">           width: 200px;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>symbols <span class="ot">&lt;-</span> <span class="fu">makeSymbolsSize</span>(</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="dv">10</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'diamond'</span>,</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">'black'</span>,</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'black'</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">1</span>,</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">10</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>tag.map.title <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">style</span>(<span class="fu">HTML</span>(<span class="st">"</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="st">  .leaflet-control.map-title {</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="st">    background: rgba(255,255,255,0.7);</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="st">    padding: 10px;</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="st">    font-size: 20px;</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="st">    font-weight: bold;</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="st">    text-align: center;</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>))</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(tag.map.title, <span class="fu">HTML</span>(<span class="st">"CLP Hominin Sites"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>coords3 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coords3 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>custom_div <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">HTML</span>(<span class="st">"&lt;h3&gt;Custom Styled Div&lt;/h3&gt;&lt;p&gt;This is an absolutely positioned HTML element overlaying the map.&lt;/p&gt;"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">"position: absolute; </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">           top: 20px; </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">           right: 20px; </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">           z-index: 1000; /* Ensures the div is above map tiles but below some controls */</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">           background-color: rgba(255, 255, 255, 0.8); </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">           padding: 15px; </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">           border-radius: 5px; </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">           width: 200px;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>symbols <span class="ot">&lt;-</span> <span class="fu">makeSymbolsSize</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="dv">10</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'diamond'</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">'black'</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'black'</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">1</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">10</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords3)<span class="sc">|&gt;</span> <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>Esri.WorldPhysical) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>Lng, <span class="sc">~</span>Lat, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords3<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords3<span class="sc">$</span>Proposed.Absolute.Age),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'left'</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-size"</span> <span class="ot">=</span> <span class="st">"16px"</span>,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                ))</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords3)<span class="sc">|&gt;</span> <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>Esri.WorldPhysical) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>Lng, <span class="sc">~</span>Lat, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords3<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords3<span class="sc">$</span>Proposed.Absolute.Age),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'left'</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-size"</span> <span class="ot">=</span> <span class="st">"16px"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                ))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-bb3c01462aeb7507de46" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-bb3c01462aeb7507de46">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[43.63,43.28,37.71,42.35,37.71],[22.68,13.65,-2.43,-3.52,-2.4],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Kozarnika <br> Age: 1.4-1.6 Ma","Site: Pirro Nord P13 <br> Age: 1.3-1.7 Ma","Site: Barranco León D <br> Age: 1.05-1.81 Ma","Site: Atapuerca Sima del Elefante  <br> Age: 1.4-1.2 Ma","Site: Fuenta Nueva 3 <br> Age: 0.98-1.4 Ma"],null,null,null,["1","2","3","4","5"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-2,-2],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[37.71,43.63],"lng":[-3.52,22.68]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-967811288d1c0e1ce223" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-967811288d1c0e1ce223">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[43.63,43.28,37.71,42.35,37.71],[22.68,13.65,-2.43,-3.52,-2.4],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Kozarnika <br> Age: 1.4-1.6 Ma","Site: Pirro Nord P13 <br> Age: 1.3-1.7 Ma","Site: Barranco León D <br> Age: 1.05-1.81 Ma","Site: Atapuerca Sima del Elefante  <br> Age: 1.4-1.2 Ma","Site: Fuenta Nueva 3 <br> Age: 0.98-1.4 Ma"],null,null,null,["1","2","3","4","5"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-2,-2],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[37.71,43.63],"lng":[-3.52,22.68]}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">save_html</span>(f, <span class="at">file =</span> <span class="st">"C:/Users/danny/Documents/git/SiteMaps/paleomap3.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">save_html</span>(f, <span class="at">file =</span> <span class="st">"C:/Users/danny/Documents/git/SiteMaps/paleomap3.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Number"</span>, <span class="st">"Site"</span>, <span class="st">"Proposed Absolute Age"</span>, <span class="st">"Dating Method"</span>, <span class="st">"Paleontology"</span>, <span class="st">"Archaeology"</span>, <span class="st">"Hominin Fossils"</span>, <span class="st">"Lat"</span>, <span class="st">"Long"</span>, <span class="st">"Ref."</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords3, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Number"</span>, <span class="st">"Site"</span>, <span class="st">"Proposed Absolute Age"</span>, <span class="st">"Dating Method"</span>, <span class="st">"Paleontology"</span>, <span class="st">"Archaeology"</span>, <span class="st">"Hominin Fossils"</span>, <span class="st">"Lat"</span>, <span class="st">"Long"</span>, <span class="st">"Ref."</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords3, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>

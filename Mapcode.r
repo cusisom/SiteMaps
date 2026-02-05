@@ -129,6 +129,30 @@ knitr::kable(coords1, align = "c")
 
 coords3 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"))
 
+custom_div <- tags$div(
+  HTML("<h3>Custom Styled Div</h3><p>This is an absolutely positioned HTML element overlaying the map.</p>"),
+  style = "position: absolute; 
+           top: 20px; 
+           right: 20px; 
+           z-index: 1000; /* Ensures the div is above map tiles but below some controls */
+           background-color: rgba(255, 255, 255, 0.8); 
+           padding: 15px; 
+           border-radius: 5px; 
+           width: 200px;
+           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+)
+
+
+symbols <- makeSymbolsSize(
+  values = 10,
+  shape = 'diamond',
+  color = 'black',
+  fillColor = 'black',
+  opacity = 1,
+  baseSize = 10
+)
+
+
 ## ---- Loadmap3 --------
 
 f <- leaflet(data = coords3)|> addTiles() |>
