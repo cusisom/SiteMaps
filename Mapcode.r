@@ -15,6 +15,7 @@ require(tidyr)
 library(leaflegend)
 require(skimr)
 require(knitr)
+require(RefManageR)
 
 ## ---- Loaddata --------
 
@@ -180,3 +181,9 @@ htmltools::save_html(f, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap3.
 colnames(coords3) <- c("Number", "Site", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
 
 knitr::kable(coords3, align = "c")
+
+## ---- References1 --------
+
+bib <- ReadBib("C:/Users/danny/Documents/git/SiteMaps/references.bib", check = FALSE)
+
+bib
