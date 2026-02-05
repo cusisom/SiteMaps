@@ -1,5 +1,6 @@
 ---
 title: "Calabrian: Western Eurasia (WEA)"
+bibliography: references.bib
 ---
 
 ## About
