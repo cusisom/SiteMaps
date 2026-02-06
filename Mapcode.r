@@ -189,16 +189,21 @@ bib <- ReadBib("C:/Users/danny/Documents/git/SiteMaps/references.bib", check = F
 
 # 1. Create a working copy
 bib_clean <- bib
-
-# 2. Clear the specific fields that trigger "Visited" and online links
 bib_clean$urldate <- NULL
 bib_clean$doi <- NULL
 bib_clean$url <- NULL
 
-# 3. Print the cleaned bibliography
-print(bib_clean, .opts = list(
-  style = "markdown", 
-  bib.style = "authoryear", 
-  first.inits = TRUE, 
-  dashed = FALSE
-))
+# 2. Sort it alphabetically (Standard APA)
+bib_clean <- sort(bib_clean)
+
+# 3. Print with manual numbering
+for (i in seq_along(bib_clean)) {
+  cat(paste0(i, ". ")) # This prints the number "1. ", "2. ", etc.
+  print(bib_clean[i], .opts = list(
+    style = "markdown", 
+    bib.style = "authoryear", 
+    first.inits = TRUE,
+    dashed = FALSE
+  ))
+  cat("\n") # Adds a space between entries
+}
