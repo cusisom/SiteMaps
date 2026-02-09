@@ -39,5 +39,5 @@ library(htmltools)
 
 ## References
 
-```{r, References1}
+```{r, References1, warning = FALSE}
 ```
