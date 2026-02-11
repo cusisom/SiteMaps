@@ -17,6 +17,9 @@ require(skimr)
 require(knitr)
 require(RefManageR)
 require(devtools)
+require(flextable)
+require(ftExtra)
+require(officer)
 
 ## ---- Loaddata --------
 
@@ -129,7 +132,9 @@ knitr::kable(coords1, align = "c")
 
 ## ---- Loaddata3 --------
 
-coords3 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"))
+coordsX <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/CalabrianWEA.csv"))
+
+coords3 <- coordsX %>%select(-Country, -Ref.)
 
 custom_div <- tags$div(
   HTML("<h3>Custom Styled Div</h3><p>This is an absolutely positioned HTML element overlaying the map.</p>"),
@@ -179,9 +184,49 @@ htmltools::save_html(f, file = "C:/Users/danny/Documents/git/SiteMaps/paleomap3.
 
 ## ---- Loadtable3 --------
 
-colnames(coords3) <- c("Number", "Site", "Proposed Absolute Age", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
+colnames(coords3) <- c("Number", "Site", "Proposed Absolute Age (Ma)", "Dating Method", "Paleontology", "Archaeology", "Hominin Fossils", "Lat", "Long", "Ref.")
 
 knitr::kable(coords3, align = "c")
+
+
+standard_border <- fp_border(color = "black", width = 1)
+
+# 1. Create table with specific columns
+ft <- flextable(coords3, col_keys = c("Site", "Proposed.Absolute.Age..Ma.", 
+                                     "Dating.Method", "Paleontology", 
+                                     "Archaeology", "Hominin.Fossils"))
+
+# 2. RENAME HEADERS (Crucial for fit!)
+# This keeps the data the same but makes the labels shorter in Word
+ft <- set_header_labels(ft, 
+  `Proposed.Absolute.Age..Ma.` = "Age (Ma)",
+  Dating.Method = "Dating Method",
+  Hominin.Fossils = "Hominin Fossils"
+)
+
+# 3. Apply Markdown and Borders
+ft <- colformat_md(ft, j = c("Dating.Method", "Paleontology", "Hominin.Fossils")) |>
+    border_outer(border = standard_border) |>
+    border_inner_h(border = standard_border) |>
+    border_inner_v(border = standard_border)
+
+# 4. FIXED LAYOUT (Prevents the "Blank Table" error)
+# This forces the table to be 100% of the page width and wrap text
+ft <- set_table_properties(ft, layout = "fixed", width = 1) |>
+      fontsize(size = 9, part = "all") |>
+      align(align = "center", part = "header")
+
+# 5. Since the table is now full-width, give specific columns more "room"
+# You can set relative widths: 1.5 for text-heavy cols, 0.8 for short ones
+ft <- width(ft, j = "Site", width = 1.2)
+ft <- width(ft, j = "Proposed.Absolute.Age..Ma.", width = 0.8)
+ft <- width(ft, j = "Paleontology", width = 2.5) # Give the wide one more space
+
+# 6. Ensure text wraps inside the cells so they don't look cramped
+ft <- padding(ft, padding = 4, part = "all")
+
+# 7. Save (Ensure the file is closed in Word first!)
+save_as_docx(ft, path = "Calabrian_Table.docx")
 
 ## ---- References1 --------
 
