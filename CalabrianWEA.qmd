@@ -5,6 +5,9 @@ bibliography: references.bib
 
 ## About
 
+The Calabrian is defined as a subdivision of the Early Pleistocene spanning from ~1.8 Ma to 781 Ka. Considering that there are no paleoanthropological sites in Western Eurasia before this time, I am specifying the Calabrian over the broader designation of "Early Pleistocene". 
+
+The following material Is being developed to describe and illustrate Calabrian hominin and archaeological sites across Western Eurasia. The list and map below are considered comprehensive but unlikely complete. The latter point is due to the preponderance of archaeological sites that continue to arise. Further, many such sites might be considered dubious from poor temporal information, site disturbance, questionable artifacts, and so on. Thus, the list provided is one which reflect a sample of largely accepted Early Pleistocene sites in Western Eurasia. 
 
 
 ```{r}
