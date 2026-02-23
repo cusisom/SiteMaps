@@ -1,0 +1,41 @@
+---
+title: "Calabrian: Western Eurasia (WEA)"
+bibliography: references2.bib
+---
+
+## About
+
+The Chibanian, known also as the Middle Pleistocene, spans from approximately 774 Ka to 129 Ka.. 
+
+The following material is being developed to describe and illustrate Chibanian hominin and archaeological sites across Western Eurasia. The list and map below are considered comprehensive but unlikely complete. The latter point is due to the preponderance of archaeological sites that continue to arise. Further, many such sites might be considered dubious from poor temporal information, site disturbance, questionable artifacts, and so on. Thus, the list provided is one which reflects a sample of largely accepted Early Pleistocene sites in Western Eurasia. 
+
+```{r}
+#| cache = FALSE
+knitr::read_chunk('Mapcode.r')
+```
+
+```{r, Loadpackages, message = FALSE, warning = FALSE}
+```
+
+
+```{r,echo=FALSE}
+library(leaflet)
+```
+
+```{r,echo=FALSE}
+library(leaflegend)
+```
+
+```{r,echo=FALSE}
+library(htmltools)
+```
+
+
+```{r, Loaddata4, message = FALSE, warning = FALSE}
+```
+
+```{r, Loadmap4}
+```
+
+```{r, Loadtable4}
+```

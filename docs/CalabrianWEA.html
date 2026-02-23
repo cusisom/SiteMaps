@@ -198,6 +198,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
+<p>The Calabrian is defined as a subdivision of the Early Pleistocene spanning from ~1.8 Ma to 781 Ka. Considering that there are no paleoanthropological sites in Western Eurasia before this time, I am specifying the Calabrian over the broader designation of “Early Pleistocene”.</p>
+<p>The following material is being developed to describe and illustrate Calabrian hominin and archaeological sites across Western Eurasia. The list and map below are considered comprehensive but unlikely complete. The latter point is due to the preponderance of archaeological sites that continue to arise. Further, many such sites might be considered dubious from poor temporal information, site disturbance, questionable artifacts, and so on. Thus, the list provided is one which reflects a sample of largely accepted Early Pleistocene sites in Western Eurasia.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -219,7 +221,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(skimr)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(knitr)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(RefManageR)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(devtools)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(flextable)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(ftExtra)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(officer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -268,13 +273,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords3<span class="sc">$</span>Proposed.Absolute.Age),</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'left'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'top'</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>),</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-size"</span> <span class="ot">=</span> <span class="st">"16px"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -287,18 +292,18 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-75f0bef5558028eefdf5" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-75f0bef5558028eefdf5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[43.63,43.28,37.71,42.35,37.71,41.56,42.35,46.25,46.95,43.77,47.92,52.82,48.15,44.22,41.201409,null,42.14464,37.8637,38.61,43.4936,41.136051,39.025],[22.68,13.65,-2.43,-3.52,-2.4,2.02,-3.52,1.88,2.26,7.46,1.2,1.53,23.13,12.04,44.204166,null,47.21314,29.38045,28.79,3.4264,1.169809,-1.481],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Kozarnika <br> Age: <0.77","Site: Pirro Nord P13 <br> Age: 1.3-1.7 ","Site: Barranco León D <br> Age: 1.05-1.81","Site: Atapuerca Sima del Elefante TE9 <br> Age: 1.4-0.78 ","Site: Fuenta Nueva 3 <br> Age: 1.17-1.29 ","Site: Vallparadís EVT8-7 <br> Age: 0.77-0.99","Site: Atapureca Gran Dolina TD6 <br> Age: 0.9-0.95 ","Site: Pont de Lavaud <br> Age: 0.96-1.28 ","Site: Terre des Sablons <br> Age: 0.83-1.27 ","Site: Le Vallonnet <br> Age: 0.9-1.2 ","Site: Pont de la Hulauderie <br> Age: 0.98","Site: Happisburgh <br> Age: 0.78-0.98 ","Site: Korolevo VII <br> Age: 1.14-1.7","Site: Monte Poggiolo <br> Age: 0.85","Site: Dmanisi Stratum A <br> Age: 1.78-1.85","Site: Dmanisi Stratum B <br> Age: ~1.77 ","Site: Muhkai II <br> Age: 1.77-2.1","Site: Kocabas <br> Age: 1.1-1.6","Site: Gediz <br> Age: ~1.17-1.24","Site: Bois-de-Riquet <br> Age: 0.9-1.0","Site: Barranc de la Boella <br> Age: 0.78-0.96","Site: Cueva Negra del estrecho del rio Quipar <br> Age: 0.78-0.99"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","~","16","17","18","19","20","21"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[-2,-2],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[37.71,52.82],"lng":[-3.52,47.21314]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-2ca2b76594cdedc2e78c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2ca2b76594cdedc2e78c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[42.14464,41.201409,null,43.28,37.71,38.61,48.15,37.72712,37.8637,47.92,46.25,43.77,43.4936,42.35,44.22,46.95,42.35,39.025,52.82,41.136051,41.56,43.63],[47.21314,44.204166,null,13.65,-2.4,28.79,23.13,-2.45518,29.38045,1.2,1.88,7.46,3.4264,-3.52,12.04,2.26,-3.52,-1.481,1.53,1.169809,2.02,22.68],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%221%22%20fill-opacity%3D%221%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Muhkai II <br> Age: 1.77-2.1","Site: Dmanisi Stratum A <br> Age: 1.78-1.85","Site: Dmanisi Stratum B <br> Age: ~1.77 ","Site: Pirro Nord P13 <br> Age: 1.3-1.7 ","Site: Fuenta Nueva 3 <br> Age: 1.17-1.29 ","Site: Gediz <br> Age: ~1.17-1.24","Site: Korolevo VII <br> Age: 1.14-1.7","Site: Barranco León  <br> Age: 1.05-1.81","Site: Kocabas <br> Age: 1.1-1.6","Site: Pont de la Hulauderie <br> Age: 0.98","Site: Pont de Lavaud <br> Age: 0.96-1.28 ","Site: Le Vallonnet <br> Age: 0.9-1.2 ","Site: Bois-de-Riquet <br> Age: 0.9-1.0","Site: Atapureca Gran Dolina TD6 <br> Age: 0.9-0.95 ","Site: Monte Poggiolo <br> Age: 0.85","Site: Terre des Sablons <br> Age: 0.83-1.27 ","Site: Atapuerca Sima del Elefante TE9 <br> Age: 0.78-1.4","Site: Cueva Negra del estrecho del rio Quipar <br> Age: 0.78-0.99","Site: Happisburgh <br> Age: 0.78-0.98 ","Site: Barranc de la Boella <br> Age: 0.78-0.96","Site: Vallparadís EVT8-7 <br> Age: 0.77-0.99","Site: Kozarnika <br> Age: <0.77"],null,null,null,["1","2","~","3","4","5","6","4","7","8","9","10","11","12","13","14","12","15","16","17","18","19"],{"interactive":false,"permanent":true,"direction":"top","opacity":1,"offset":[-2,-2],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"16px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[37.71,52.82],"lng":[-3.52,47.21314]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">save_html</span>(f, <span class="at">file =</span> <span class="st">"C:/Users/danny/Documents/git/SiteMaps/paleomap3.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">save_html</span>(f, <span class="at">file =</span> <span class="st">"C:/Users/danny/Documents/git/SiteMaps/Output/paleomap3.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Number"</span>, <span class="st">"Site"</span>, <span class="st">"Proposed Absolute Age (Ma)"</span>, <span class="st">"Dating Method"</span>, <span class="st">"Paleontology"</span>, <span class="st">"Archaeology"</span>, <span class="st">"Hominin Fossils"</span>, <span class="st">"Lat"</span>, <span class="st">"Long"</span>, <span class="st">"Ref."</span>)</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Number"</span>, <span class="st">"Site"</span>, <span class="st">"Proposed Absolute Age (Ma)"</span>, <span class="st">"Dating Method"</span>, <span class="st">"Paleontology"</span>, <span class="st">"Archaeology"</span>, <span class="st">"Hominin Fossils"</span>, <span class="st">"Lat"</span>, <span class="st">"Long"</span>, <span class="st">"Ref"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords3, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -327,24 +332,48 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <th style="text-align: center;">Hominin Fossils</th>
 <th style="text-align: center;">Lat</th>
 <th style="text-align: center;">Long</th>
-<th style="text-align: center;">Ref.</th>
+<th style="text-align: center;">Ref</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">Kozarnika</td>
-<td style="text-align: center;">&lt;0.77</td>
-<td style="text-align: center;">Biostratigraphy</td>
-<td style="text-align: center;"><em>Panthera schaubi, Chasmaporthetes lunensis, Xenocyon sp., Dolichopithecus sp., Croizetoceros ramosus, Cervis philisi, Eucladoceros sp., Cervalces sp., Procamptoceras brivatense, Gazellospira sp.</em></td>
-<td style="text-align: center;">Mode 1</td>
+<td style="text-align: center;">Muhkai II</td>
+<td style="text-align: center;">1.77-2.1</td>
+<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
+<td style="text-align: center;"><em>Archidiskodon meridionalis, Equus stenonis, Paleotragus priasovicus, Galogoral meneghinii, Pitymimomys pitymyoides, Canis estruscus, Vulpes alopecoides, Pliocrocuta perrieri</em></td>
+<td style="text-align: center;">1079 stone artifacts (Mode 1: cores, pebbles with removals, nodules, fragments, flakes, choppers, picks, retouched tools)</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">43.63000</td>
-<td style="text-align: center;">22.680000</td>
-<td style="text-align: center;"><em>5,6</em></td>
+<td style="text-align: center;">42.14464</td>
+<td style="text-align: center;">47.213140</td>
+<td style="text-align: center;"><em>14,28,36</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">Dmanisi Stratum A</td>
+<td style="text-align: center;">1.78-1.85</td>
+<td style="text-align: center;"><sup>40</sup>Ar/<sup>39</sup>Ar, Paleomagnetism</td>
+<td style="text-align: center;"><em>Dicerorhinus etruscus etruscus</em></td>
+<td style="text-align: center;">122 lithic (Mode 1: flakes, cores, core/choppers</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">41.20141</td>
+<td style="text-align: center;">44.204166</td>
+<td style="text-align: center;"><em>10,11</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">~</td>
+<td style="text-align: center;">Dmanisi Stratum B</td>
+<td style="text-align: center;">~1.77</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><em>Struthio dmanisensis, Ochotona cf.&nbsp;largerli, Hypolagus brahygnathus, Apodemus dominans, Kowalskia sp., Cricetus sp., Mimomys tornensis, Mimomys ostramosensis, Parameriones cf.&nbsp;obeidiensis, Gerbillus sp., Marmota sp., Canis etruscus, Ursus etruscus, Martes sp., Megantereon cultridens, Homotherium crenatidens, Panthera gombaszoegensis, Pachycrocuta perrieri, Mammuthus meridionalis, Equus stenonis, Dicerorhinus etruscus etruscus, Gazella borbonica, Soergelia sp., Dmanisibos georgicus, Cervus perieri, Eucladocerus aff. senezensis, Arvernoceros, Dama nestii</em></td>
+<td style="text-align: center;">4446 stone artifacts (hammerstones, anvils, pebble tools, choppers, non-modified flakes)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;"><em>12,18</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
 <td style="text-align: center;">Pirro Nord P13</td>
 <td style="text-align: center;">1.3-1.7</td>
 <td style="text-align: center;">Biostratigraphy</td>
@@ -356,31 +385,7 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <td style="text-align: center;"><em>1,14</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">Barranco León D</td>
-<td style="text-align: center;">1.05-1.81</td>
-<td style="text-align: center;">Biostratigraphy, Paleomagnetism, ESR</td>
-<td style="text-align: center;"><em>Mammuthus meridionalis, Hippopotamus antiquus, Megaloceros cf.&nbsp;obscurus, Pseudodama sp., Bovini gen. et sp. indet., Caprini indet (n.&nbsp;sp.), Hemitragus cf.&nbsp;albus, Equus altidens, Stephanorhinus cf.&nbsp;hundsheimensis, Megantereon cf.&nbsp;whitei, Pachycrocuta brevirostris, Ursus sp., Canis mosbachensis, Vulpes sp., Meles sp., Allophaiomys aff. lavocati, …</em></td>
-<td style="text-align: center;">Cores, flakes, flake fragments, debitage, retouched pieces, angular fragments, modified and unmodified cobbles</td>
-<td style="text-align: center;"><em>Homo</em> sp.</td>
-<td style="text-align: center;">37.71000</td>
-<td style="text-align: center;">-2.430000</td>
-<td style="text-align: center;"><em>14,38,39</em></td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">4</td>
-<td style="text-align: center;">Atapuerca Sima del Elefante TE9</td>
-<td style="text-align: center;">1.4-0.78</td>
-<td style="text-align: center;">Cosmogenic Nuclides, Paleomagnetism</td>
-<td style="text-align: center;"><em>Allophaiomys chalinei, A. lavocati, Pannonictis nestii, Iberomys aff. Nutiensis-thenii-huescarensis, Ugaromys nanus, Pliomys episcopalism, Mimomys savini, Castillomys rivas, apodemus sp., Glis sp., Eliomys cf.&nbsp;quercinus, Castor fiber, Scurius sp.</em></td>
-<td style="text-align: center;">Mode 1</td>
-<td style="text-align: center;"><em>Homo</em> sp.</td>
-<td style="text-align: center;">42.35000</td>
-<td style="text-align: center;">-3.520000</td>
-<td style="text-align: center;"><em>14,34,35,30,26</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
 <td style="text-align: center;">Fuenta Nueva 3</td>
 <td style="text-align: center;">1.17-1.29</td>
 <td style="text-align: center;">Paleomagnetism, Biostratigraphy, ESR</td>
@@ -392,31 +397,67 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <td style="text-align: center;"><em>14,27</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">Vallparadís EVT8-7</td>
-<td style="text-align: center;">0.77-0.99</td>
-<td style="text-align: center;">Paleomagnatism, Biostratigraphy, U-Series, ESR</td>
-<td style="text-align: center;"><em>Pachycrocuta brevirostris, Panthera gombaszoegensis, Stephanorhinus hundsheimensis, Hippopotamus antiquus, Pseudodama vallonnetensis, Canis mosbachensis, Elphus antiquus, Ursus deningeri, Sus sp.</em></td>
-<td style="text-align: center;">32,500+ stone artifacts (manuports, hammerstones, anvils, pebble tools, cores, flakes, denticulates, notches)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Gediz</td>
+<td style="text-align: center;">~1.17-1.24</td>
+<td style="text-align: center;"><sup>40</sup>Ar/<sup>39</sup>Ar, Paleomagnetism</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">41.56000</td>
-<td style="text-align: center;">2.020000</td>
-<td style="text-align: center;"><em>14,9,20</em></td>
+<td style="text-align: center;">1 stone artifact (hard hammer flake)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">38.61000</td>
+<td style="text-align: center;">28.790000</td>
+<td style="text-align: center;"><em>14,19</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Korolevo VII</td>
+<td style="text-align: center;">1.14-1.7</td>
+<td style="text-align: center;">Cosmogenic Nuclides, Paleomagnetism</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">33 stone artifacts( Mode 1: chunks, flakes, cores, polyhedrons)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">48.15000</td>
+<td style="text-align: center;">23.130000</td>
+<td style="text-align: center;"><em>13</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Barranco León</td>
+<td style="text-align: center;">1.05-1.81</td>
+<td style="text-align: center;">Biostratigraphy, Paleomagnetism, ESR</td>
+<td style="text-align: center;"><em>Mammuthus meridionalis, Hippopotamus antiquus, Megaloceros cf.&nbsp;obscurus, Pseudodama sp., Bovini gen. et sp. indet., Caprini indet (n.&nbsp;sp.), Hemitragus cf.&nbsp;albus, Equus altidens, Stephanorhinus cf.&nbsp;hundsheimensis, Megantereon cf.&nbsp;whitei, Pachycrocuta brevirostris, Ursus sp., Canis mosbachensis, Vulpes sp., Meles sp., Allophaiomys aff. lavocati, …</em></td>
+<td style="text-align: center;">Cores, flakes, flake fragments, debitage, retouched pieces, angular fragments, modified and unmodified cobbles</td>
+<td style="text-align: center;"><em>Homo</em> sp.</td>
+<td style="text-align: center;">37.72712</td>
+<td style="text-align: center;">-2.455180</td>
+<td style="text-align: center;"><em>14,38,39</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">7</td>
-<td style="text-align: center;">Atapureca Gran Dolina TD6</td>
-<td style="text-align: center;">0.9-0.95</td>
-<td style="text-align: center;">Paleomagnatism, Biostratigraphy, ESR, ESR-OB, Thermoluminesence</td>
-<td style="text-align: center;"><em>Allophaiomys chalinei, Micromys minutus, Homotherium cf.&nbsp;latidens, Sus scrofa</em></td>
-<td style="text-align: center;">1046 stone artifacts (pebble tools, cores, hammerstones, flakes, retouched flakes)</td>
-<td style="text-align: center;"><em>H. antecessor</em></td>
-<td style="text-align: center;">42.35000</td>
-<td style="text-align: center;">-3.520000</td>
-<td style="text-align: center;"><em>22,29,34,6</em></td>
+<td style="text-align: center;">Kocabas</td>
+<td style="text-align: center;">1.1-1.6</td>
+<td style="text-align: center;">Paleomagnetism, <sup>26</sup>Al/<sup>10</sup>Be, Biostratigraphy</td>
+<td style="text-align: center;"><em>Archidiskodon meridionalis meridionalis, Equus cf.&nbsp;altidens/E. cf.&nbsp;mygdoniensis, Equus cf.&nbsp;apolloniensis, Stephanorhinus cf.&nbsp;etuscus, Metacervoceros rhenanus, Arvernoceros sp., Cervalces (Libralces) ex gr. Minor-gallicus, Paleotragus sp, Gazella sp., Lagurodon arankae, Mimomys ex. gr. reidi-pusillus</em></td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;"><em>Homo</em> sp.</td>
+<td style="text-align: center;">37.86370</td>
+<td style="text-align: center;">29.380450</td>
+<td style="text-align: center;"><em>21,33,40</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">8</td>
+<td style="text-align: center;">Pont de la Hulauderie</td>
+<td style="text-align: center;">0.98</td>
+<td style="text-align: center;">ESR</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Mode 1 (choppers, flakes, pebble tools)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">47.92000</td>
+<td style="text-align: center;">1.200000</td>
+<td style="text-align: center;"><em>8,35,29</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
 <td style="text-align: center;">Pont de Lavaud</td>
 <td style="text-align: center;">0.96-1.28</td>
 <td style="text-align: center;">ESR</td>
@@ -426,18 +467,6 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <td style="text-align: center;">46.25000</td>
 <td style="text-align: center;">1.880000</td>
 <td style="text-align: center;"><em>14,15</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">Terre des Sablons</td>
-<td style="text-align: center;">0.83-1.27</td>
-<td style="text-align: center;">ESR</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">1000+ stone artifacts (Mode 1, cores, flakes)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">46.95000</td>
-<td style="text-align: center;">2.260000</td>
-<td style="text-align: center;"><em>7,35</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">10</td>
@@ -453,114 +482,6 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">11</td>
-<td style="text-align: center;">Pont de la Hulauderie</td>
-<td style="text-align: center;">0.98</td>
-<td style="text-align: center;">ESR</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Mode 1 (choppers, flakes, pebble tools)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">47.92000</td>
-<td style="text-align: center;">1.200000</td>
-<td style="text-align: center;"><em>8,35,29</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">Happisburgh</td>
-<td style="text-align: center;">0.78-0.98</td>
-<td style="text-align: center;">Paleomagnatism, Biostratigraphy</td>
-<td style="text-align: center;"><em>Mammuthus cf.&nbsp;meridionalis, Equus suessenbornensis, Mimomys, Cervalces latifrons, Cervus elphus, Microtus</em></td>
-<td style="text-align: center;">78 flint artifacts (Mode 1: cores, flakes, flake tools)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">52.82000</td>
-<td style="text-align: center;">1.530000</td>
-<td style="text-align: center;"><em>32</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">13</td>
-<td style="text-align: center;">Korolevo VII</td>
-<td style="text-align: center;">1.14-1.7</td>
-<td style="text-align: center;">Cosmogenic Nuclides, Paleomagnetism</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">33 stone artifacts( Mode 1: chunks, flakes, cores, polyhedrons)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">48.15000</td>
-<td style="text-align: center;">23.130000</td>
-<td style="text-align: center;"><em>13</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">14</td>
-<td style="text-align: center;">Monte Poggiolo</td>
-<td style="text-align: center;">0.85</td>
-<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">1319 stone artifacts (Mode 1: cores, flakes)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">44.22000</td>
-<td style="text-align: center;">12.040000</td>
-<td style="text-align: center;"><em>4,24</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">15</td>
-<td style="text-align: center;">Dmanisi Stratum A</td>
-<td style="text-align: center;">1.78-1.85</td>
-<td style="text-align: center;"><sup>40</sup>Ar/39<sup>Ar</sup>, Paleomagnetism</td>
-<td style="text-align: center;"><em>Dicerorhinus etruscus etruscus</em></td>
-<td style="text-align: center;">122 lithic (Mode 1: flakes, cores, core/choppers</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">41.20141</td>
-<td style="text-align: center;">44.204166</td>
-<td style="text-align: center;"><em>10,11</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">~</td>
-<td style="text-align: center;">Dmanisi Stratum B</td>
-<td style="text-align: center;">~1.77</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><em>Struthio dmanisensis, Ochotona cf.&nbsp;largerli, Hypolagus brahygnathus, Apodemus dominans, Kowalskia sp., Cricetus sp., Mimomys tornensis, Mimomys ostramosensis, Parameriones cf.&nbsp;obeidiensis, Gerbillus sp., Marmota sp., Canis etruscus, Ursus etruscus, Martes sp., Megantereon cultridens, Homotherium crenatidens, Panthera gombaszoegensis, Pachycrocuta perrieri, Mammuthus meridionalis, Equus stenonis, Dicerorhinus etruscus etruscus, Gazella borbonica, Soergelia sp., Dmanisibos georgicus, Cervus perieri, Eucladocerus aff. senezensis, Arvernoceros, Dama nestii</em></td>
-<td style="text-align: center;">4446 stone artifacts (hammerstones, anvils, pebble tools, choppers, non-modified flakes)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;">NA</td>
-<td style="text-align: center;"><em>12,18</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">Muhkai II</td>
-<td style="text-align: center;">1.77-2.1</td>
-<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
-<td style="text-align: center;"><em>Archidiskodon meridionalis, Equus stenonis, Paleotragus priasovicus, Galogoral meneghinii, Pitymimomys pitymyoides, Canis estruscus, Vulpes alopecoides, Pliocrocuta perrieri</em></td>
-<td style="text-align: center;">1079 stone artifacts (Mode 1: cores, pebbles with removals, nodules, fragments, flakes, choppers, picks, retouched tools)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">42.14464</td>
-<td style="text-align: center;">47.213140</td>
-<td style="text-align: center;"><em>14,28,36</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">17</td>
-<td style="text-align: center;">Kocabas</td>
-<td style="text-align: center;">1.1-1.6</td>
-<td style="text-align: center;">Paleomagnetism, <sup>26</sup>Al/<sup>10</sup>Be, Biostratigraphy</td>
-<td style="text-align: center;"><em>Archidiskodon meridionalis meridionalis, Equus cf.&nbsp;altidens/E. cf.&nbsp;mygdoniensis, Equus cf.&nbsp;apolloniensis, Stephanorhinus cf.&nbsp;etuscus, Metacervoceros rhenanus, Arvernoceros sp., Cervalces (Libralces) ex gr. Minor-gallicus, Paleotragus sp, Gazella sp., Lagurodon arankae, Mimomys ex. gr. reidi-pusillus</em></td>
-<td style="text-align: center;">N/A</td>
-<td style="text-align: center;"><em>Homo</em> sp.</td>
-<td style="text-align: center;">37.86370</td>
-<td style="text-align: center;">29.380450</td>
-<td style="text-align: center;"><em>21,33,40</em></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">18</td>
-<td style="text-align: center;">Gediz</td>
-<td style="text-align: center;">~1.17-1.24</td>
-<td style="text-align: center;"><sup>40</sup>Ar/39<sup>Ar</sup>, Paleomagnetism</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">1 stone artifact (hard hammer flake)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">38.61000</td>
-<td style="text-align: center;">28.790000</td>
-<td style="text-align: center;"><em>14,19</em></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">19</td>
 <td style="text-align: center;">Bois-de-Riquet</td>
 <td style="text-align: center;">0.9-1.0</td>
 <td style="text-align: center;">Biostratigraphy</td>
@@ -571,8 +492,80 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <td style="text-align: center;">3.426400</td>
 <td style="text-align: center;"><em>2,17</em></td>
 </tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Atapureca Gran Dolina TD6</td>
+<td style="text-align: center;">0.9-0.95</td>
+<td style="text-align: center;">Paleomagnatism, Biostratigraphy, ESR, ESR-OB, Thermoluminesence</td>
+<td style="text-align: center;"><em>Allophaiomys chalinei, Micromys minutus, Homotherium cf.&nbsp;latidens, Sus scrofa</em></td>
+<td style="text-align: center;">1046 stone artifacts (pebble tools, cores, hammerstones, flakes, retouched flakes)</td>
+<td style="text-align: center;"><em>H. antecessor</em></td>
+<td style="text-align: center;">42.35000</td>
+<td style="text-align: center;">-3.520000</td>
+<td style="text-align: center;"><em>22,29,34,6</em></td>
+</tr>
 <tr class="odd">
-<td style="text-align: center;">20</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Monte Poggiolo</td>
+<td style="text-align: center;">0.85</td>
+<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1319 stone artifacts (Mode 1: cores, flakes)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">44.22000</td>
+<td style="text-align: center;">12.040000</td>
+<td style="text-align: center;"><em>4,24</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">Terre des Sablons</td>
+<td style="text-align: center;">0.83-1.27</td>
+<td style="text-align: center;">ESR</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1000+ stone artifacts (Mode 1, cores, flakes)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">46.95000</td>
+<td style="text-align: center;">2.260000</td>
+<td style="text-align: center;"><em>7,35</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Atapuerca Sima del Elefante TE9</td>
+<td style="text-align: center;">0.78-1.4</td>
+<td style="text-align: center;">Cosmogenic Nuclides, Paleomagnetism</td>
+<td style="text-align: center;"><em>Allophaiomys chalinei, A. lavocati, Pannonictis nestii, Iberomys aff. Nutiensis-thenii-huescarensis, Ugaromys nanus, Pliomys episcopalism, Mimomys savini, Castillomys rivas, apodemus sp., Glis sp., Eliomys cf.&nbsp;quercinus, Castor fiber, Scurius sp.</em></td>
+<td style="text-align: center;">Mode 1</td>
+<td style="text-align: center;"><em>Homo</em> sp.</td>
+<td style="text-align: center;">42.35000</td>
+<td style="text-align: center;">-3.520000</td>
+<td style="text-align: center;"><em>14,34,35,30,26</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Cueva Negra del estrecho del rio Quipar</td>
+<td style="text-align: center;">0.78-0.99</td>
+<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
+<td style="text-align: center;"><em>Mimomys savini, Pliomys episcopalis, Microtus sp. cf.&nbsp;chalinei, Microtus sp. cf.&nbsp;deucalion, Microtus huescarensis, Microtus brecciensis, Microtus, gregaloides, Prolagus calpensis, Megaloceros savini, Dama sp. cf.&nbsp;nestii vallonnetensis, Equus altidens, Stephanorhinus sp. cf.&nbsp;etruscus, Sus scrofa</em></td>
+<td style="text-align: center;">&gt;1000 stone artifacts (Mode 1 and Mode II: 1 bifacial handaxe, choppers, hammerstones, cores, side-scrapers, end-scrapers, denticulates, flakes)</td>
+<td style="text-align: center;"><em>Homo</em> sp.</td>
+<td style="text-align: center;">39.02500</td>
+<td style="text-align: center;">-1.481000</td>
+<td style="text-align: center;"><em>41,42</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Happisburgh</td>
+<td style="text-align: center;">0.78-0.98</td>
+<td style="text-align: center;">Paleomagnatism, Biostratigraphy</td>
+<td style="text-align: center;"><em>Mammuthus cf.&nbsp;meridionalis, Equus suessenbornensis, Mimomys, Cervalces latifrons, Cervus elphus, Microtus</em></td>
+<td style="text-align: center;">78 flint artifacts (Mode 1: cores, flakes, flake tools)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">52.82000</td>
+<td style="text-align: center;">1.530000</td>
+<td style="text-align: center;"><em>32</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">17</td>
 <td style="text-align: center;">Barranc de la Boella</td>
 <td style="text-align: center;">0.78-0.96</td>
 <td style="text-align: center;">Paleomagnetism, <sup>26</sup>Al/<sup>10</sup>Be, Biostratigraphy</td>
@@ -583,17 +576,29 @@ missing or invalid lat/lon values and will be ignored</code></pre>
 <td style="text-align: center;">1.169809</td>
 <td style="text-align: center;"><em>16,23</em></td>
 </tr>
+<tr class="odd">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Vallparadís EVT8-7</td>
+<td style="text-align: center;">0.77-0.99</td>
+<td style="text-align: center;">Paleomagnatism, Biostratigraphy, U-Series, ESR</td>
+<td style="text-align: center;"><em>Pachycrocuta brevirostris, Panthera gombaszoegensis, Stephanorhinus hundsheimensis, Hippopotamus antiquus, Pseudodama vallonnetensis, Canis mosbachensis, Elphus antiquus, Ursus deningeri, Sus sp.</em></td>
+<td style="text-align: center;">32,500+ stone artifacts (manuports, hammerstones, anvils, pebble tools, cores, flakes, denticulates, notches)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">41.56000</td>
+<td style="text-align: center;">2.020000</td>
+<td style="text-align: center;"><em>14,9,20</em></td>
+</tr>
 <tr class="even">
-<td style="text-align: center;">21</td>
-<td style="text-align: center;">Cueva Negra del estrecho del rio Quipar</td>
-<td style="text-align: center;">0.78-0.99</td>
-<td style="text-align: center;">Paleomagnetism, Biostratigraphy</td>
-<td style="text-align: center;"><em>Mimomys savini, Pliomys episcopalis, Microtus sp. cf.&nbsp;chalinei, Microtus sp. cf.&nbsp;deucalion, Microtus huescarensis, Microtus brecciensis, Microtus, gregaloides, Prolagus calpensis, Megaloceros savini, Dama sp. cf.&nbsp;nestii vallonnetensis, Equus altidens, Stephanorhinus sp. cf.&nbsp;etruscus, Sus scrofa</em></td>
-<td style="text-align: center;">&gt;1000 stone artifacts (Mode 1 and Mode II: 1 bifacial handaxe, choppers, hammerstones, cores, side-scrapers, end-scrapers, denticulates, flakes)</td>
-<td style="text-align: center;"><em>Homo</em> sp.</td>
-<td style="text-align: center;">39.02500</td>
-<td style="text-align: center;">-1.481000</td>
-<td style="text-align: center;"><em>41,42</em></td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Kozarnika</td>
+<td style="text-align: center;">&lt;0.77</td>
+<td style="text-align: center;">Biostratigraphy</td>
+<td style="text-align: center;"><em>Panthera schaubi, Chasmaporthetes lunensis, Xenocyon sp., Dolichopithecus sp., Croizetoceros ramosus, Cervis philisi, Eucladoceros sp., Cervalces sp., Procamptoceras brivatense, Gazellospira sp.</em></td>
+<td style="text-align: center;">Mode 1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">43.63000</td>
+<td style="text-align: center;">22.680000</td>
+<td style="text-align: center;"><em>5,6</em></td>
 </tr>
 </tbody>
 </table>
