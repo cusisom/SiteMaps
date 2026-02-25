@@ -278,8 +278,8 @@ symbols <- makeSymbolsSize(
   values = 10,
   shape = 'diamond',
   color = 'black',
-  fillColor = 'black',
-  opacity = 1,
+  fillColor = 'blue',
+  opacity = 2,
   baseSize = 10
 )
 
@@ -293,11 +293,11 @@ addProviderTiles(providers$Esri.WorldPhysical) |>
   icon = symbols,
   label = ~Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'top',
-	offset = c(-2, -2),
+	
 	style = list(
 		"color" = "black",
 		"font-family" = "serif",
-		"font-size" = "16px",
+		"font-size" = "12px",
 		"font-weight" = "bold")
   
 				))
@@ -352,3 +352,26 @@ ft <- padding(ft, padding = 4, part = "all")
 save_as_docx(ft, path = "C:/Users/danny/Documents/git/SiteMaps/Output/Chibanian_Table.docx")
 
 ## ---- References2 --------
+
+bib <- ReadBib("C:/Users/danny/Documents/git/SiteMaps/references2.bib", check = FALSE)
+
+# 1. Create a working copy
+bib_clean <- bib
+bib_clean$urldate <- NULL
+bib_clean$doi <- NULL
+bib_clean$url <- NULL
+
+# 2. Sort it alphabetically (Standard APA)
+bib_clean <- sort(bib_clean)
+
+# 3. Print with manual numbering
+for (i in seq_along(bib_clean)) {
+  cat(paste0(i, ". ")) # This prints the number "1. ", "2. ", etc.
+  print(bib_clean[i], .opts = list(
+    style = "markdown", 
+    bib.style = "authoryear", 
+    first.inits = TRUE,
+    dashed = FALSE
+  ))
+  cat("\n") # Adds a space between entries
+}

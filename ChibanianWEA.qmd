@@ -1,5 +1,5 @@
 ---
-title: "Calabrian: Western Eurasia (WEA)"
+title: "Chibanian: Western Eurasia (WEA)"
 bibliography: references2.bib
 ---
 
