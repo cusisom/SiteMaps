@@ -10,7 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - CalabrianWEA.qmd
-      -ChibanianWEA.qmd
+      - ChibanianWEA.qmd
         
 format:
   html:
