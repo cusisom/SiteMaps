@@ -411,8 +411,8 @@ symbols <- makeSymbolsSize(
 f <- leaflet(data = coords5)|> addTiles() |>
 addProviderTiles(providers$Esri.WorldPhysical) |>
   addMarkers(~Lng, ~Lat, 
-  popup = paste("Site:", coords4$Site, "<br>",
-				"Age:", coords4$Proposed.Absolute.Age),
+  popup = paste("Site:", coords5$Site, "<br>",
+				"Age:", coords5$Proposed.Absolute.Age),
   icon = symbols,
   label = ~Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'right',
