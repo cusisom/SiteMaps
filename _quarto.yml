@@ -11,6 +11,7 @@ website:
         text: Home
       - CalabrianWEA.qmd
       - ChibanianWEA.qmd
+      - ChibanianEA.qmd
         
 format:
   html:
