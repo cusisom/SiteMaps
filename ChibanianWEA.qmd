@@ -1,6 +1,7 @@
 ---
 title: "Chibanian: Western Eurasia (WEA)"
 bibliography: references2.bib
+biblatexoptions: [useprefix=true]
 ---
 
 ## About
