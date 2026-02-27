@@ -277,9 +277,9 @@ symbols <- makeSymbolsSize(
   values = 5,
   shape = 'diamond',
   color = 'black',
-  fillColor = 'blue',
-  opacity = 2,
-  baseSize = 9
+  fillColor = 'black',
+  opacity = 15,
+  baseSize = 10
 )
 
 ## ---- Loadmap4 --------
@@ -348,7 +348,7 @@ ft <- width(ft, j = "Paleontology", width = 2.5) # Give the wide one more space
 # 6. Ensure text wraps inside the cells so they don't look cramped
 ft <- padding(ft, padding = 4, part = "all")
 
-save_as_docx(ft, path = "C:/Users/danny/Documents/git/SiteMaps/Output/Chibanian_Table.docx")
+save_as_docx(ft, path = "C:/Users/danny/Documents/git/SiteMaps/Output/ChibanianWEA_Table.docx")
 
 ## ---- References2 --------
 
@@ -400,9 +400,9 @@ symbols <- makeSymbolsSize(
   values = 5,
   shape = 'diamond',
   color = 'black',
-  fillColor = 'blue',
-  opacity = 2,
-  baseSize = 9
+  fillColor = 'black',
+  opacity = 15,
+  baseSize = 10
 )
 
 ## ---- Loadmap5 --------
@@ -450,18 +450,68 @@ symbols <- makeSymbolsSize(
   values = 5,
   shape = 'diamond',
   color = 'black',
-  fillColor = 'blue',
-  opacity = 2,
-  baseSize = 9
+  fillColor = 'black',
+  opacity = 15,
+  baseSize = 10
 )
 
 ## ---- Loadmap6 --------
 
-f <- leaflet(data = coords5)|> addTiles() |>
+f <- leaflet(data = coords6)|> addTiles() |>
 addProviderTiles(providers$Esri.WorldPhysical) |>
   addMarkers(~Lng, ~Lat, 
   popup = paste("Site:", coords6$Site, "<br>",
 				"Age:", coords6$Proposed.Absolute.Age),
+  icon = symbols,
+  label = ~Number,
+  labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'right',
+	offset = c(5, 5),
+	style = list(
+		"color" = "black",
+		"font-family" = "serif",
+		"font-size" = "11px",
+		"font-weight" = "bold")
+  
+				))
+f
+
+## ---- Loaddata7 --------
+
+
+coords7 <- read.csv(print("C:/Users/danny/Documents/git/SiteMaps/LP_EA.csv"))
+
+
+
+custom_div <- tags$div(
+  HTML("<h3>Custom Styled Div</h3><p>This is an absolutely positioned HTML element overlaying the map.</p>"),
+  style = "position: absolute; 
+           top: 20px; 
+           right: 20px; 
+           z-index: 1000; /* Ensures the div is above map tiles but below some controls */
+           background-color: rgba(255, 255, 255, 0.8); 
+           padding: 15px; 
+           border-radius: 5px; 
+           width: 200px;
+           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+)
+
+
+symbols <- makeSymbolsSize(
+  values = 5,
+  shape = 'diamond',
+  color = 'black',
+  fillColor = 'black',
+  opacity = 15,
+  baseSize = 10
+)
+
+## ---- Loadmap6 --------
+
+f <- leaflet(data = coords7)|> addTiles() |>
+addProviderTiles(providers$Esri.WorldPhysical) |>
+  addMarkers(~Lng, ~Lat, 
+  popup = paste("Site:", coords7$Site, "<br>",
+				"Age:", coords7$Proposed.Absolute.Age),
   icon = symbols,
   label = ~Number,
   labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = 'right',

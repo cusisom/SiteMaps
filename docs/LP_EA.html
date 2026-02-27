@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Calabrian: East Asia (EA) – PaleoAnth SiteMaps</title>
+<title>Late Pleistocene: East Asia (LP_EA) – PaleoAnth SiteMaps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,30 +99,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
-
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-
-<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-
-<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
-
-<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-
-<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
-
-<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-
-<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-
-<script src="site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
-
-<script src="site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-
-<script src="site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
-
 
 
 <link rel="stylesheet" href="styles.css">
@@ -158,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Chibanian: Western Eurasia (WEA)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./CalabrianEA.html" aria-current="page"> 
+    <a class="nav-link" href="./CalabrianEA.html"> 
 <span class="menu-text">Calabrian: East Asia (EA)</span></a>
   </li>  
   <li class="nav-item">
@@ -166,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Chibanian: East Asia (EA)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./LP_EA.html"> 
+    <a class="nav-link active" href="./LP_EA.html" aria-current="page"> 
 <span class="menu-text">Late Pleistocene: East Asia (LP_EA)</span></a>
   </li>  
 </ul>
@@ -188,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Calabrian: East Asia (EA)</h1>
+<h1 class="title">Late Pleistocene: East Asia (LP_EA)</h1>
 </div>
 
 
@@ -235,10 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coords5 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/CalabrianEA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coords7 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/LP_EA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/CalabrianEA.csv"</code></pre>
+<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/LP_EA.csv"</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -260,37 +236,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="dv">5</span>,</span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'diamond'</span>,</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">'black'</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'blue'</span>,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">2</span>,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">9</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'black'</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">15</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">10</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords5)<span class="sc">|&gt;</span> <span class="fu">addTiles</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>Esri.WorldPhysical) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="sc">~</span>Lng, <span class="sc">~</span>Lat, </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords5<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Age:"</span>, coords5<span class="sc">$</span>Proposed.Absolute.Age),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">icon =</span> symbols,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="sc">~</span>Number,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(<span class="at">noHide =</span> <span class="cn">TRUE</span>, <span class="at">textOnly =</span> <span class="cn">TRUE</span>, <span class="at">direction =</span> <span class="st">'right'</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">offset =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">list</span>(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-size"</span> <span class="ot">=</span> <span class="st">"11px"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-weight"</span> <span class="ot">=</span> <span class="st">"bold"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                ))</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-f86761bc72987d1227e2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f86761bc72987d1227e2">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[34.6847,34.2258,30.35,40,31.0897,25.75,32.83,23.34,34.1833,30.6333,-7.4],[110.2917,109.4775,109.0667,114.5,118.0961,101.9166,110.59,107.0013,109.48333,110.0667,112.5],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2211%22%20height%3D%2211%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%225.5%2C1%201%2C5.5%205.5%2C10%2010%2C5.5%205.5%2C1%22%20stroke%3D%22black%22%20fill%3D%22blue%22%20stroke-opacity%3D%222%22%20fill-opacity%3D%222%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":4.5,"iconAnchorY":4.5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Xihoudu <br> Age: ~2.43","Site: Shangchen <br> Age: ~2.12-1.26","Site: Longgupo <br> Age: 2.2-1.4","Site: Nihewan Basin <br> Age: ~2.2","Site: Renzidong <br> Age: 2.14-2.15","Site: Yuanmou <br> Age: ~1.78-1.59","Site: Yunxian <br> Age: ~1.75-0.6","Site: Mohui cave <br> Age: 1.69-1.29","Site: Liantian/Gongwangling <br> Age: ~1.63","Site: Jianshi/Longgudong <br> Age: 1.51-1.04","Site: Modjokerto <br> Age: ~1.43"],null,null,null,["1","2","3","4","5","6","7","8","9","10","11"],{"interactive":false,"permanent":true,"direction":"right","opacity":1,"offset":[5,5],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"11px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-7.4,40],"lng":[101.9166,118.0961]}},"evals":[],"jsHooks":[]}</script>
-</div>
 </div>
 
 
