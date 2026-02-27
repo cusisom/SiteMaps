@@ -505,7 +505,7 @@ symbols <- makeSymbolsSize(
   baseSize = 10
 )
 
-## ---- Loadmap6 --------
+## ---- Loadmap7 --------
 
 f <- leaflet(data = coords7)|> addTiles() |>
 addProviderTiles(providers$Esri.WorldPhysical) |>
