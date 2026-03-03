@@ -1,0 +1,33 @@
+---
+title: "LP_WEA"
+---
+
+```{r}
+#| cache = FALSE
+knitr::read_chunk('Mapcode.r')
+```
+
+```{r, Loadpackages, message = FALSE, warning = FALSE}
+```
+
+
+```{r,echo=FALSE}
+library(leaflet)
+```
+
+```{r,echo=FALSE}
+library(leaflegend)
+```
+
+```{r,echo=FALSE}
+library(htmltools)
+```
+
+```{r, Loaddata8, message = FALSE, warning = FALSE}
+```
+
+```{r, Loadmap8}
+```
+
+```{r, LoadTable8}
+```

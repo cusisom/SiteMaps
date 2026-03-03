@@ -14,6 +14,7 @@ website:
       - CalabrianEA.qmd
       - ChibanianEA.qmd
       - LP_EA.qmd
+      - LP_WEA.qmd
         
 format:
   html:
