@@ -29,5 +29,5 @@ library(htmltools)
 ```{r, Loadmap8}
 ```
 
-```{r, LoadTable8}
+```{r, Loadtable8}
 ```

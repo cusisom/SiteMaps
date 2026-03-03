@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Late Pleistocene: East Asia (LP_EA) – PaleoAnth SiteMaps</title>
+<title>LP_WEA – PaleoAnth SiteMaps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,11 +166,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Chibanian: East Asia (EA)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./LP_EA.html" aria-current="page"> 
+    <a class="nav-link" href="./LP_EA.html"> 
 <span class="menu-text">Late Pleistocene: East Asia (LP_EA)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./LP_WEA.html"> 
+    <a class="nav-link active" href="./LP_WEA.html" aria-current="page"> 
 <span class="menu-text">LP_WEA</span></a>
   </li>  
 </ul>
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Late Pleistocene: East Asia (LP_EA)</h1>
+<h1 class="title">LP_WEA</h1>
 </div>
 
 
@@ -239,47 +239,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coords7 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/LP_EA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>coordsX <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">print</span>(<span class="st">"C:/Users/danny/Documents/git/SiteMaps/LatePleisWEA.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/LP_EA.csv"</code></pre>
+<pre><code>[1] "C:/Users/danny/Documents/git/SiteMaps/LatePleisWEA.csv"</code></pre>
 </div>
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>custom_div <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">HTML</span>(<span class="st">"&lt;h3&gt;Custom Styled Div&lt;/h3&gt;&lt;p&gt;This is an absolutely positioned HTML element overlaying the map.&lt;/p&gt;"</span>),</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">"position: absolute; </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">           top: 20px; </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">           right: 20px; </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">           z-index: 1000; /* Ensures the div is above map tiles but below some controls */</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">           background-color: rgba(255, 255, 255, 0.8); </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">           padding: 15px; </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">           border-radius: 5px; </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">           width: 200px;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>symbols <span class="ot">&lt;-</span> <span class="fu">makeSymbolsSize</span>(</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="dv">5</span>,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'diamond'</span>,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">'black'</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'black'</span>,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">15</span>,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">10</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>coords8 <span class="ot">&lt;-</span> coordsX <span class="sc">%&gt;%</span><span class="fu">select</span>(<span class="sc">-</span>Country, <span class="sc">-</span>Ref., <span class="sc">-</span>Notes)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>custom_div <span class="ot">&lt;-</span> tags<span class="sc">$</span><span class="fu">div</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">HTML</span>(<span class="st">"&lt;h3&gt;Custom Styled Div&lt;/h3&gt;&lt;p&gt;This is an absolutely positioned HTML element overlaying the map.&lt;/p&gt;"</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">"position: absolute; </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">           top: 20px; </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">           right: 20px; </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">           z-index: 1000; /* Ensures the div is above map tiles but below some controls */</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">           background-color: rgba(255, 255, 255, 0.8); </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">           padding: 15px; </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">           border-radius: 5px; </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">           width: 200px;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="st">           box-shadow: 0 4px 8px rgba(0,0,0,0.1);"</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>symbols <span class="ot">&lt;-</span> <span class="fu">makeSymbolsSize</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="dv">5</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'diamond'</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">'black'</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">fillColor =</span> <span class="st">'black'</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">opacity =</span> <span class="dv">15</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">baseSize =</span> <span class="dv">10</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords7) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">leaflet</span>(<span class="at">data =</span> coords8) <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>Esri.WorldPhysical) <span class="sc">%&gt;%</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Static Diamonds</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span>Lng, <span class="sc">~</span>Lat, </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords7<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>, <span class="st">"Age:"</span>, coords7<span class="sc">$</span>Proposed.Absolute.Age),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="fu">paste</span>(<span class="st">"Site:"</span>, coords8<span class="sc">$</span>Site, <span class="st">"&lt;br&gt;"</span>, <span class="st">"Age:"</span>, coords8<span class="sc">$</span>Proposed.Absolute.Age),</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> symbols</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Draggable Ghost Labels</span></span>
@@ -291,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">noHide =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">textOnly =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">direction =</span> <span class="st">'center'</span>, <span class="co"># Better for clicking directly on the number</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">direction =</span> <span class="st">'left'</span>, <span class="co"># Better for clicking directly on the number</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="fu">list</span>(</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"color"</span> <span class="ot">=</span> <span class="st">"black"</span>,</span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"font-family"</span> <span class="ot">=</span> <span class="st">"serif"</span>,</span>
@@ -303,8 +305,436 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-87f7abace348120d8948" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-87f7abace348120d8948">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[23.6133,25.65075,-7.3167,22.2871,33.1285,37.1831,-8.6913,27.222,22.8167,20.2087,15.3222,-5.9,17.7082,24.183,3.819,9.279999999999999,6.6486,39.25,23.06,38.2667,31.47,39.39,6.7667,39.6833,30.1167,26.7833,26.1289,23.3333,30.05],[106.9669,111.48033,111.4208,107.5125,110.2179,108.1828,120.0997,74.1931,77.88330000000001,103.4098,78.1336,101.9,121.8165,109.4322,113.7783,117.9814,80.2152,112.17,107.45,106.525,88.81,115.52,80.2,115.85,104.65,100.2833,127.7592,103.4,90.95],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%2215%22%20fill-opacity%3D%2215%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Lunadong <br> Age: ~126-70","Site: Fuyandong <br> Age: ~120-80","Site: Ngandong <br> Age: ~117-108","Site: Zhirendong <br> Age: ~115-60","Site: Huanglong Cave <br> Age: ~103-44","Site: Salawusu/Hetao <br> Age: ~100-19","Site: Liang Bua <br> Age: ~95-17","Site: Katoati <br> Age: ~95-12","Site: Narmada <br> Age: ~93-48","Site: Tam Pa Ling <br> Age: ~86-46","Site: Jwalapuram <br> Age: ~77-74","Site: Lida Ajer <br> Age: ~73-63","Site: Callao Cave <br> Age: ~67","Site: Liujiang <br> Age: ~67-23","Site: Niah Caves <br> Age: ~50-48","Site: Tabon <br> Age: ~48","Site: Fa-Hien Lena <br> Age: ~48-4","Site: Shiyu <br> Age: ~45","Site: Yahuai Cave <br> Age: 43-4","Site: Shuidonggou <br> Age: 42-6","Site: Nwya Devu <br> Age: ~40-30","Site: Tianyuan Cave <br> Age: 40","Site: Batadomba <br> Age: ~36-16","Site: ZKD Upper Cave <br> Age: ~30","Site: Ziyang <br> Age: ~30","Site: Lijiang <br> Age: ","Site: Minatogawa <br> Age: ~22-16","Site: Maludong <br> Age: ~14.3-11.5","Site: Qiusang <br> Age: "],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[[23.6133,25.65075,-7.3167,22.2871,33.1285,37.1831,-8.6913,27.222,22.8167,20.2087,15.3222,-5.9,17.7082,24.183,3.819,9.279999999999999,6.6486,39.25,23.06,38.2667,31.47,39.39,6.7667,39.6833,30.1167,26.7833,26.1289,23.3333,30.05],[106.9669,111.48033,111.4208,107.5125,110.2179,108.1828,120.0997,74.1931,77.88330000000001,103.4098,78.1336,101.9,121.8165,109.4322,113.7783,117.9814,80.2152,112.17,107.45,106.525,88.81,115.52,80.2,115.85,104.65,100.2833,127.7592,103.4,90.95],null,null,null,{"interactive":true,"draggable":true,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":0,"riseOnHover":false,"riseOffset":250},null,null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29"],{"interactive":false,"permanent":true,"direction":"center","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"11px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[-8.6913,39.6833],"lng":[74.1931,127.7592]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3dbd61a28ce844094bad" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3dbd61a28ce844094bad">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addProviderTiles","args":["Esri.WorldPhysical",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[45.54,44.1667,32.6705,51.7329,54.23,56.1833,58.2,32.6707,36.7842,46.301562,44.0531,46.415,51.2275,43.3836,50.4822,50.4673,45.0833,49.7065,45.35,51.55,45.934278,46.035,36.1203,36.9511,38.4731,45.7533,47.5915,44.9939,47.9611,41.2366,32.8722,36.831593],[11.01,40,34.9655,84.0334,39.3,40.5,68.2,34.9661,22.5778,16.079687,15.5458,0.7408,6.9456,-5.3289,4.6692,-3.5025,21.8333,17.0158,23.84,-4.256,9.024694,11.758,-5.3419,-4.1272,-8.994999999999999,-0.5183,3.7665,1.06,20.5305,13.0967,35.5017,44.221083],{"iconUrl":{"data":"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%2212%22%20height%3D%2212%22%3E%0A%20%20%3Cpolygon%20id%3D%22diamond%22%20points%3D%226%2C1%201%2C6%206%2C11%2011%2C6%206%2C1%22%20stroke%3D%22black%22%20fill%3D%22black%22%20stroke-opacity%3D%2215%22%20fill-opacity%3D%2215%22%20stroke-width%3D%221%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E","index":0},"iconAnchorX":5,"iconAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Site: Riparo Tagliente <br> Age: 71-57","Site: Mezmaiskaya Cave <br> Age: ","Site: Tabun Cave <br> Age: ","Site: Okladnikov Cave <br> Age: ","Site: Kostenki <br> Age: ","Site: Sungir <br> Age: ","Site: Baigara <br> Age: ","Site: Skhul <br> Age: ","Site: Lakonis Cave <br> Age: ","Site: Vindija <br> Age: ","Site: Velika Pecina <br> Age: ","Site: Les Rochers <br> Age: ","Site: Feldhofer <br> Age: ","Site: El Sidron <br> Age: ~38","Site: Spy <br> Age: ","Site: Kent's Cavern <br> Age: ","Site: Oase <br> Age: ","Site: Mladec <br> Age: ","Site: Cioclovina <br> Age: ","Site: Paviland <br> Age: ","Site: Caverna Generosa <br> Age: ","Site: Monte Avena <br> Age: ","Site: Gorham's Cave <br> Age: ","Site: Zafarraya <br> Age: ","Site: Figueira Brava <br> Age: ","Site: St. Cesaire <br> Age: ","Site: Arcy-sur-Cure <br> Age: ","Site: Le Moustier <br> Age: ","Site: Subalyuk <br> Age: ","Site: Guattari <br> Age: ","Site: Amud <br> Age: ","Site: Shanidar <br> Age: "],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[[45.54,44.1667,32.6705,51.7329,54.23,56.1833,58.2,32.6707,36.7842,46.301562,44.0531,46.415,51.2275,43.3836,50.4822,50.4673,45.0833,49.7065,45.35,51.55,45.934278,46.035,36.1203,36.9511,38.4731,45.7533,47.5915,44.9939,47.9611,41.2366,32.8722,36.831593],[11.01,40,34.9655,84.0334,39.3,40.5,68.2,34.9661,22.5778,16.079687,15.5458,0.7408,6.9456,-5.3289,4.6692,-3.5025,21.8333,17.0158,23.84,-4.256,9.024694,11.758,-5.3419,-4.1272,-8.994999999999999,-0.5183,3.7665,1.06,20.5305,13.0967,35.5017,44.221083],null,null,null,{"interactive":true,"draggable":true,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":0,"riseOnHover":false,"riseOffset":250},null,null,null,null,["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"],{"interactive":false,"permanent":true,"direction":"left","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":true,"style":{"color":"black","font-family":"serif","font-size":"11px","font-weight":"bold"},"className":"","sticky":true},null]}],"limits":{"lat":[32.6705,58.2],"lng":[-8.994999999999999,84.0334]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">save_html</span>(f, <span class="at">file =</span> <span class="st">"C:/Users/danny/Documents/git/SiteMaps/Output/LP_WEA.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords8) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Number"</span>, <span class="st">"Site"</span>, <span class="st">"Proposed Absolute Age (Ma)"</span>, <span class="st">"Dating Method"</span>, <span class="st">"Paleontology"</span>, <span class="st">"Archaeology"</span>, <span class="st">"Hominin Fossils"</span>, <span class="st">"Lat"</span>, <span class="st">"Long"</span>, <span class="st">"Ref"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(coords8, <span class="at">align =</span> <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 56%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Number</th>
+<th style="text-align: center;">Site</th>
+<th style="text-align: center;">Proposed Absolute Age (Ma)</th>
+<th style="text-align: center;">Dating Method</th>
+<th style="text-align: center;">Paleontology</th>
+<th style="text-align: center;">Archaeology</th>
+<th style="text-align: center;">Hominin Fossils</th>
+<th style="text-align: center;">Lat</th>
+<th style="text-align: center;">Long</th>
+<th style="text-align: center;">Ref</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Riparo Tagliente</td>
+<td style="text-align: center;">71-57</td>
+<td style="text-align: center;">Biostratigraphy</td>
+<td style="text-align: center;"><em>Microtus arvalis, Microtus gregalis, Microtus oeconomus, Ochotona sp., Capra ibex, Cervus elaphus, Capreolus capreolus, Sus scrofa, Alces alces, Marmota marmota, Canis lupus, Ursus arctos</em></td>
+<td style="text-align: center;">Mousterian-&gt;Aurignacian</td>
+<td style="text-align: center;"><em>H. neanderthalensis</em></td>
+<td style="text-align: center;">45.54000</td>
+<td style="text-align: center;">11.010000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Mezmaiskaya Cave</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><em>H. neanderthalensis</em></td>
+<td style="text-align: center;">44.16670</td>
+<td style="text-align: center;">40.000000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Tabun Cave</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">32.67050</td>
+<td style="text-align: center;">34.965500</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">Okladnikov Cave</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">51.73290</td>
+<td style="text-align: center;">84.033400</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Kostenki</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">54.23000</td>
+<td style="text-align: center;">39.300000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Sungir</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">56.18330</td>
+<td style="text-align: center;">40.500000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Baigara</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">58.20000</td>
+<td style="text-align: center;">68.200000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Skhul</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">32.67070</td>
+<td style="text-align: center;">34.966100</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">Lakonis Cave</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">36.78420</td>
+<td style="text-align: center;">22.577800</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Vindija</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">46.30156</td>
+<td style="text-align: center;">16.079687</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">Velika Pecina</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">44.05310</td>
+<td style="text-align: center;">15.545800</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">Les Rochers</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">46.41500</td>
+<td style="text-align: center;">0.740800</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">Feldhofer</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">51.22750</td>
+<td style="text-align: center;">6.945600</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">El Sidron</td>
+<td style="text-align: center;">~38</td>
+<td style="text-align: center;">14C</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><em>H. neanderthalensis</em></td>
+<td style="text-align: center;">43.38360</td>
+<td style="text-align: center;">-5.328900</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">Spy</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">50.48220</td>
+<td style="text-align: center;">4.669200</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">Kent’s Cavern</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">50.46730</td>
+<td style="text-align: center;">-3.502500</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">Oase</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">45.08330</td>
+<td style="text-align: center;">21.833300</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">Mladec</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">49.70650</td>
+<td style="text-align: center;">17.015800</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">Cioclovina</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">45.35000</td>
+<td style="text-align: center;">23.840000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">Paviland</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">51.55000</td>
+<td style="text-align: center;">-4.256000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">Caverna Generosa</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">45.93428</td>
+<td style="text-align: center;">9.024694</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">Monte Avena</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">46.03500</td>
+<td style="text-align: center;">11.758000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">Gorham’s Cave</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">36.12030</td>
+<td style="text-align: center;">-5.341900</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">Zafarraya</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">36.95110</td>
+<td style="text-align: center;">-4.127200</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">Figueira Brava</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">38.47310</td>
+<td style="text-align: center;">-8.995000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">St.&nbsp;Cesaire</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">45.75330</td>
+<td style="text-align: center;">-0.518300</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">Arcy-sur-Cure</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">47.59150</td>
+<td style="text-align: center;">3.766500</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">Le Moustier</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">44.99390</td>
+<td style="text-align: center;">1.060000</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">Subalyuk</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">47.96110</td>
+<td style="text-align: center;">20.530500</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">Guattari</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">41.23660</td>
+<td style="text-align: center;">13.096700</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">Amud</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">32.87220</td>
+<td style="text-align: center;">35.501700</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">Shanidar</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">36.83159</td>
+<td style="text-align: center;">44.221083</td>
+<td style="text-align: center;">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
