@@ -284,36 +284,56 @@ custom_div <- tags$div(
 )
 
 
-symbols <- makeSymbolsSize(
-  values = 5,
-  shape = 'diamond',
+symbols <- makeSymbolIcons(
+  shape = ifelse(coords4$Category == "Fossil", "star",
+          ifelse(coords4$Category == "Arch", "circle", "diamond")),
   color = 'black',
-  fillColor = 'black',
-  opacity = 15,
-  baseSize = 10
+  fillColor = 'white',
+  opacity = 1,
+  width = 10, 
+  height = 10
 )
 
 ## ---- Loadmap4 --------
+# 1. Subset the data
+coords_clustered <- coords4[coords4$Group %in% c("A", "B"), ]
+coords_static    <- coords4[coords4$Group == "C", ]
 
-f <- leaflet(data = coords4) %>%
+# 2. Subset the icons to match the data
+symbols_clustered <- symbols[coords4$Group %in% c("A", "B")]
+symbols_static    <- symbols[coords4$Group == "C"]
+
+f <- leaflet() %>%
   addTiles() %>%
   addProviderTiles(providers$Esri.WorldPhysical) %>%
-  # 1. Static Diamonds
+  
+  # 1. Clustered Markers (Groups A & B) - NO LABELS
   addMarkers(
+    data = coords_clustered,
     ~Lng, ~Lat, 
-    popup = paste("Site:", coords4$Site, "<br>", "Age:", coords4$Proposed.Absolute.Age),
-    icon = symbols
+    popup = paste("Site:", coords_clustered$Site, "<br>", "Age:", coords_clustered$Proposed.Absolute.Age),
+    icon = symbols_clustered,
+    clusterOptions = markerClusterOptions()
   ) %>%
-  # 2. Draggable Ghost Labels
+  
+  # 2. Static Markers (Group C)
   addMarkers(
+    data = coords_static,
+    ~Lng, ~Lat, 
+    popup = paste("Site:", coords_static$Site, "<br>", "Age:", coords_static$Proposed.Absolute.Age),
+    icon = symbols_static
+  ) %>%
+  
+  # 3. Draggable Labels (ONLY for Group C)
+  addMarkers(
+    data = coords_static,
     ~Lng, ~Lat,
-    # This makes the blue pin invisible but keeps the 'drag handle' active
     options = markerOptions(draggable = TRUE, opacity = 0), 
     label = ~Number,
     labelOptions = labelOptions(
       noHide = TRUE, 
       textOnly = TRUE, 
-      direction = 'left', # Better for clicking directly on the number
+      direction = 'left',
       style = list(
         "color" = "black",
         "font-family" = "serif",
@@ -323,6 +343,7 @@ f <- leaflet(data = coords4) %>%
   )
 
 f
+
 
 htmltools::save_html(f, file = "C:/Users/danny/Documents/git/SiteMaps/Output/paleomap4.html")
 
